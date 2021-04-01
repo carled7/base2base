@@ -28,19 +28,13 @@ function toDecimal(digits, base) {
 }
 function replaceChar(digits) {
     for (digit of digits) {
-        digit = digit.toLowerCase();
-        console.log(digit);
+        digit = digit.toUpperCase();
         switch (digit) {
-            case 'a':
-                let index = digits.indexOf('a');
-                digits[index] = 10;
-                console.log("igual a 'a'")
-
-
-                console.log(digit);
-
+            case 'A':
+                digits.splice(digits.indexOf(digit), 1, 10);
+            break;
+            //case 'B':
         }
-        console.log(digits);
-
     }
+    console.log(digits);
 }
