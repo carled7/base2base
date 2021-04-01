@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Base converter</h1>
+    <main>
+        <input type="text" name="inputNumber" id="inputNumber" onchange="receiveNumber()"> 
+        <select name="base" id="base">
+            <option value="2">binary</option>
+            <option value="10" select>decimal</option>
+            <option value="16">hexadecimal</option>
+            <option value="8">octal</option>
+        </select>
+        <button onclick="receiveNumber()">calc</button>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
