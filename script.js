@@ -1,5 +1,5 @@
 let outputNumber = [];
-let basesConverter = [2, 8, 16];
+let basesConverter = [2, 8];
 
 let digits;
 function receiveNumber() {
@@ -14,7 +14,15 @@ function receiveNumber() {
     else {
 
     }
-    fromDecimal(inputNumber);
+    //fromDecimal(inputNumber);
+    printNumber(inputNumber);
+}
+
+function printNumber(num) {
+    for (base of basesConverter) {
+        let output = fromDecimal(num, base);
+        console.log(output);
+    }
 }
 
 function toDecimal(digits, base) {
@@ -30,19 +38,17 @@ function toDecimal(digits, base) {
     }
     return numDecimal;
 }
-function fromDecimal(num) {
+function fromDecimal(num, base) {
     outputNumber = [];
-    for (base of basesConverter) {
-        while (num >= base) {
-            outputNumber.push(num % base);
-            num = Math.floor(num / base);
-            if (num < base) {
-                outputNumber.push(num);
-            }
-            console.log("quociente: " + num);
-            console.log("resto: " + outputNumber);
+    while (num >= base) {
+        outputNumber.push(num % base);
+        num = Math.floor(num / base);
+        if (num < base) {
+            outputNumber.push(num);
         }
+        return outputNumber;
     }
+
 }
 function replaceChar(digit) {
     let modChar = digit.toUpperCase();
