@@ -20,8 +20,8 @@ function receiveNumber() {
 
 function printNumber(num) {
     for (base of basesConverter) {
-        let output = fromDecimal(num, base);
-        console.log(output);
+        
+        console.log(fromDecimal(num, base));
     }
 }
 
@@ -46,9 +46,8 @@ function fromDecimal(num, base) {
         if (num < base) {
             outputNumber.push(num);
         }
-        return outputNumber;
     }
-
+    return outputNumber;
 }
 function replaceChar(digit) {
     let modChar = digit.toUpperCase();
