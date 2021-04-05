@@ -31,7 +31,8 @@ function convertToBase(num) {
 }
 
 function printResults() {
-    results = document.getElementById("results");
+    let results = document.getElementById("results");
+    results.innerHTML = '';
     for (converted of convertedNumber) {
         let result = document.createElement('div');
         result.innerText = converted;
