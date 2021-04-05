@@ -34,8 +34,9 @@ function printResults() {
     results = document.getElementById("results");
     for (converted of convertedNumber) {
         let result = document.createElement('div');
-        result.innerContent = converted.toString();
+        result.innerText = converted;
         console.log(converted.toString());
+        results.appendChild(result);
     }
 
 }
