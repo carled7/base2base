@@ -2,6 +2,7 @@ let outputNumber = [];
 let basesConverter = [2, 8, 16];
 let digits;
 let inputBase;
+let convertedNumber = [];
 
 function receiveNumber() {
     //receive the number and its base selected by the user
@@ -14,17 +15,29 @@ function receiveNumber() {
     if (inputBase.value != 10) {
         inputNumber = toDecimal(digits, inputBase.value);
     }
-    printNumber(inputNumber);
+    convertToBase(inputNumber);
+    //console.log(convertedNumber);
+    printResults();
 }
 
-function printNumber(num) {
+function convertToBase(num) {
     //this function converts the 'inputNumber' into the default bases
+    convertedNumber = [];
     for (base of basesConverter) {
         if (base != inputBase.value) {
-            console.log(fromDecimal(num, base));
+            convertedNumber.push(fromDecimal(num, base));
         }
-
     }
+}
+
+function printResults() {
+    results = document.getElementById("results");
+    for (converted of convertedNumber) {
+        let result = document.createElement('div');
+        result.innerContent = converted.toString();
+        console.log(converted.toString());
+    }
+
 }
 
 function toDecimal(digits, base) {
