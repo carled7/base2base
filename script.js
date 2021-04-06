@@ -1,8 +1,10 @@
 let outputNumber = [];
-let basesConverter = [2, 8, 16];
+let basesConverter = [2, 8, 10, 16];
 let digits;
 let inputBase;
+let outputBases = [];
 let convertedNumber = [];
+let results = document.getElementById("results");
 
 function receiveNumber() {
     //receive the number and its base selected by the user
@@ -16,27 +18,43 @@ function receiveNumber() {
         inputNumber = toDecimal(digits, inputBase.value);
     }
     convertToBase(inputNumber);
-    //console.log(convertedNumber);
+    console.log(outputBases);
     printResults();
 }
 
 function convertToBase(num) {
     //this function converts the 'inputNumber' into the default bases
     convertedNumber = [];
-    for (base of basesConverter) {
+    outputBases = [];
+    for (let base of basesConverter) {
         if (base != inputBase.value) {
+            switch (base) {
+                case 2:
+                    outputBases.push('(2)');
+                    break;
+                case 8:
+                    outputBases.push('(8)');
+                    break;
+                case 10:
+                    outputBases.push('(10)');
+                    break;
+                case 16:
+                    outputBases.push('(16)');
+                    break;
+            }
             convertedNumber.push(fromDecimal(num, base));
         }
     }
 }
 
 function printResults() {
-    let results = document.getElementById("results");
+
     results.innerHTML = '';
+    let i = 0;
     for (converted of convertedNumber) {
         let result = document.createElement('div');
-        result.innerText = converted;
-        console.log(converted.toString());
+        converted = converted.reverse().join('');
+        result.innerText = outputBases[i++].toString() + ": " + converted;
         results.appendChild(result);
     }
 
