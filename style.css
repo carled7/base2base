@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;;
+}
+body{
+    background-color: #F9F9F9;
+}
+#limiter{
+    background-color: #FB3640;
+    width: 70%;
+    height: 10px;
+    margin: auto;
+}
+header{
+    background-color: #FFF;
+    width: 100%;
+    height: 5rem;
+}
+h1{
+    display: inline;
+    line-height: 4.3rem;
+    margin-left: 17%;
+} 
+nav{
+    float: right;
+    line-height: 4.3rem;
+    margin-right: 17%;
+    text-align: center;
+}
+.nav-items{
+    margin-left: 30px;   
+}
+#input-area{
+    display: flex;
+    
+    flex-direction: column;
+    height: 88vh;
+    justify-content: center;
+    align-items: center;
+}
+input, select{
+    font-size: 50pt;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    color: #D6D6D6;
+}
