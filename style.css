@@ -33,16 +33,31 @@ nav{
 }
 #input-area{
     display: flex;
-    
-    flex-direction: column;
+    color: #D9d9D9;
+    flex-direction: row;
     height: 88vh;
     justify-content: center;
     align-items: center;
 }
 input, select{
-    font-size: 50pt;
     text-align: center;
-    border: none;
     background-color: transparent;
-    color: #D6D6D6;
+    border: none;
+}
+input{
+    font-size: 5vw;
+    width: 45%;
+}
+select{
+    font-size: 2.5vw;
+    appearance: none;
+    text-align: center;
+    padding-top: 3vw;
+
+}
+input:focus{
+    outline-style: none;
+    
+    color: #000000
+    
 }
