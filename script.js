@@ -97,8 +97,6 @@ function printResults() {
                 results.appendChild(baseIndication);
                 break;
         }
-        //result.innerText = outputBases[i].toString() + ": " + converted;
-        //results.appendChild(result);
     }
 
 }

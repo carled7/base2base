@@ -72,24 +72,28 @@ input:focus, select:focus{
     outline-style: none;        
 }
 input:focus{
-    animation: focus-animation 150ms ease 0s forwards;
+    animation: focus-animation 600ms ease 0s forwards;
     
 }
 
 #results{
-    display: grid;
+    
     width: 70%;
+    display: grid;
     
     margin: auto;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: wrap;
+    grid-template-columns: repeat(auto-fill, max(320px));
+    grid-gap: 20px;
+    grid-template-rows: repeat(190px 190px);
+    grid-auto-flow: row;
     justify-items: center;
+    justify-content: center;
 }
 #content-areas{
     background-color: #EBEBEB;
     border-radius: 1vw;
-    width: 20vw;
-    height: 24vh;
+    width: 320px;
+    height: 190px;
 }
 #base-indicator{
     margin: 5% 0% 5px 7.5%;
@@ -107,7 +111,7 @@ strong{
 #converted-number{
     text-align: right;
     margin-right: 7.5%;
-    font-size: 65pt;
+    font-size: 60pt;
     line-height: 90%;
 }
 button{
@@ -115,10 +119,10 @@ button{
     background-color: #FB3640;
     color: white;
     border: none;
-    margin: 1.5vh 7.5% 0px 7.5%;
+    margin: 15px 45px ;
     font-size: 14pt;
     border-radius: 3vh;
-    padding: 1vh 7vw;
+    padding: 8px 90px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
 }
 @keyframes focus-animation {
@@ -132,4 +136,8 @@ button{
 @keyframes scaling-input-field {
     0%{font-size: 8vw;}
     100%{font-size: 6vw;}
+}
+@keyframes show-results-area {
+    0%{display: none;}
+    100%{display: grid;}
 }
