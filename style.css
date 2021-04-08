@@ -29,17 +29,22 @@ nav{
     line-height: 4.3rem;
     margin-right: 17%;
     text-align: center;
+    font-size: 14pt;
 }
 .nav-items{
     margin-left: 30px;   
 }
+
 #input-area{
     display: flex;
     color: #D9d9D9;
     flex-direction: row;
     height: 45vh;
     justify-content: center;
+    background-color: transparent;
+    margin-bottom: 3vw;
 }
+
 input, select{    
     text-align: center;
     background-color: transparent;
@@ -70,7 +75,61 @@ input:focus{
     animation: focus-animation 150ms ease 0s forwards;
     
 }
+
+#results{
+    display: grid;
+    width: 70%;
+    
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: wrap;
+    justify-items: center;
+}
+#content-areas{
+    background-color: #EBEBEB;
+    border-radius: 1vw;
+    width: 20vw;
+    height: 24vh;
+}
+#base-indicator{
+    margin: 5% 0% 5px 7.5%;
+    font-size: 14pt;
+}
+strong{
+    color: #FB3640;
+}
+#divider{
+    height: 2px;
+    width: 85%;
+    background-color: #141414;
+    margin: auto;
+}
+#converted-number{
+    text-align: right;
+    margin-right: 7.5%;
+    font-size: 65pt;
+    line-height: 90%;
+}
+button{
+    align-items: center;
+    background-color: #FB3640;
+    color: white;
+    border: none;
+    margin: 1.5vh 7.5% 0px 7.5%;
+    font-size: 14pt;
+    border-radius: 3vh;
+    padding: 1vh 7vw;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+}
 @keyframes focus-animation {
     0%{background-color: #F0F0F0;}
     100%{background-color: #E3E3E3;}
+}
+@keyframes scaling-input-area {
+    0%{height: 45vh;}
+    100%{height: 23vh;}
+}
+@keyframes scaling-input-field {
+    0%{font-size: 8vw;}
+    100%{font-size: 6vw;}
 }
