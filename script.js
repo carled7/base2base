@@ -20,7 +20,7 @@ function receiveNumber() {
             inputNumber = toDecimal(digits, inputBase.value);
         }
         convertToBase(inputNumber);
-        console.log(outputBases);
+        //console.log(outputBases);
         printResults();
     }
 }
@@ -63,6 +63,12 @@ function printResults() {
         inputArea.classList.add('showed-results')
         inputArea.style.animation = 'scaling-input-area 150ms ease 0s forwards';
         inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
+        let width = 320;
+        if (converted.length >= 7) {
+            width = width * (1 + 0.15 * (converted.length - 6));
+            baseIndication.style.width = `${width}px`;
+        }
+
         converted = converted.reverse().join('');
         switch (outputBases[i++]) {
             case '(2)':
