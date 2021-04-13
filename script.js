@@ -6,6 +6,7 @@ let outputBases = [];
 let convertedNumber = [];
 let results = document.getElementById("results");
 let x = "something";
+let addedBase = [];
 
 function receiveNumber() {
     //receive the number and its base selected by the user
@@ -20,7 +21,6 @@ function receiveNumber() {
             inputNumber = toDecimal(digits, inputBase.value);
         }
         convertToBase(inputNumber);
-        //console.log(outputBases);
         printResults();
     }
 }
@@ -29,7 +29,7 @@ function convertToBase(num) {
     //this function converts the 'inputNumber' into the default bases
     convertedNumber = [];
     outputBases = [];
-    for (let base of basesConverter) {
+    for (var base of basesConverter) {
         if (base != inputBase.value) {
             switch (base) {
                 case 2:
@@ -44,6 +44,9 @@ function convertToBase(num) {
                 case 16:
                     outputBases.push('(16)');
                     break;
+                default:
+                    outputBases.push(`${base}`);
+                    break;
             }
             convertedNumber.push(fromDecimal(num, base));
         }
@@ -54,15 +57,19 @@ function printResults() {
 
     results.innerHTML = '';
     let i = 0;
+
     for (converted of convertedNumber) {
         //let result = document.createElement('div');
         let baseIndication = document.createElement('div');
         baseIndication.setAttribute('id', 'content-areas');
+
         let inputArea = document.getElementById('input-area');
-        let inputField = document.getElementById('inputNumber');
         inputArea.classList.add('showed-results')
         inputArea.style.animation = 'scaling-input-area 150ms ease 0s forwards';
+
+        let inputField = document.getElementById('inputNumber');
         inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
+
         let width = 320;
         if (converted.length >= 7) {
             width = width * (1 + 0.15 * (converted.length - 6));
@@ -70,13 +77,13 @@ function printResults() {
         }
 
         converted = converted.reverse().join('');
-        switch (outputBases[i++]) {
+        switch (outputBases[i]) {
             case '(2)':
 
                 baseIndication.innerHTML = `<p id="base-indicator"><strong>binary</strong> base</p>
                                             <div id="divider"></div>
                                             <p id="converted-number">${converted}</p>
-                                            <button>copy</button>`;
+                                            <button id="copy-button">copy</button>`;
                 //result.innerText = converted;
                 results.appendChild(baseIndication);
                 //results.appendChild(result);
@@ -85,24 +92,32 @@ function printResults() {
                 baseIndication.innerHTML = `<p id="base-indicator"><strong>octal</strong> base</p>
                                             <div id="divider"></div>
                                             <p id="converted-number">${converted}</p>
-                                            <button>copy</button>`;
+                                            <button id="copy-button">copy</button>`;
                 results.appendChild(baseIndication);
                 break;
             case '(10)':
                 baseIndication.innerHTML = `<p id="base-indicator"><strong>decimal</strong> base</p>
                                             <div id="divider"></div>
                                             <p id="converted-number">${converted}</p>
-                                            <button>copy</button>`;
+                                            <button id="copy-button">copy</button>`;
                 results.appendChild(baseIndication);
                 break;
             case '(16)':
                 baseIndication.innerHTML = `<p id="base-indicator"><strong>hexadecimal</strong> base</p>
                                             <div id="divider"></div> 
                                             <p id="converted-number">${converted}</p>
-                                            <button>copy</button>`;
+                                            <button id="copy-button">copy</button>`;
+                results.appendChild(baseIndication);
+                break;
+            default:
+                baseIndication.innerHTML = `<p id="base-indicator"><strong>(${outputBases[i]})</strong> base</p>
+                                            <div id="divider"></div> 
+                                            <p id="converted-number">${converted}</p>
+                                            <button id="copy-button">copy</button>`;
                 results.appendChild(baseIndication);
                 break;
         }
+        ++i;
     }
 
 }
@@ -196,12 +211,32 @@ function replaceNum(digit) {
     }
 }
 
-function addNewBase(){
+function showInput(){
     let addButton = document.getElementById("add-bases");
     addButton.remove();
-    let inputNewBase = document.createElement("input");
+
+    let newBaseDiv = document.getElementById('insert-new-base');
+
+    let inputNewBase = document.createElement("input"); 
     inputNewBase.id = "new-base-input";
     inputNewBase.placeholder = "insert new base";
-    document.main.appendChild(inputNewBase);
-    
+    newBaseDiv.appendChild(inputNewBase);
+
+    let buttonNewBase = document.createElement("button");
+    buttonNewBase.innerText = "add";
+    buttonNewBase.setAttribute('onclick', 'addNewBase()');
+    newBaseDiv.appendChild(buttonNewBase);
+}
+
+function addNewBase(){
+    let newBase = document.getElementById('new-base-input');
+    basesConverter.push(parseInt(newBase.value));
+
+    let selectTag = document.getElementById('base');
+    let newOptionTag = document.createElement('option');
+    newOptionTag.setAttribute('value', `${newBase.value}`)
+    newOptionTag.innerHTML = `(${newBase.value})`;
+    selectTag.appendChild(newOptionTag);
+
+    receiveNumber();
 }
