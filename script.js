@@ -195,3 +195,13 @@ function replaceNum(digit) {
             break;
     }
 }
+
+function addNewBase(){
+    let addButton = document.getElementById("add-bases");
+    addButton.remove();
+    let inputNewBase = document.createElement("input");
+    inputNewBase.id = "new-base-input";
+    inputNewBase.placeholder = "insert new base";
+    document.main.appendChild(inputNewBase);
+    
+}

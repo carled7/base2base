@@ -38,7 +38,6 @@ nav{
 #input-area{
     display: flex;
     color: #D9d9D9;
-    flex-direction: row;
     height: 45vh;
     justify-content: center;
     align-items: center;
@@ -46,7 +45,7 @@ nav{
     margin-bottom: 3vw;
 }
 
-input, select{    
+#inputNumber, select{    
     text-align: center;
     background-color: transparent;
     border: none;
@@ -54,7 +53,7 @@ input, select{
     
     padding: 10px 0;
 }
-input{
+#inputNumber{
     font-size: 8vw;
     width: 35vw;
     background-color:#F0F0F0;
@@ -74,9 +73,12 @@ select{
 input:focus, select:focus{
     outline-style: none;        
 }
-input:focus{
+#inputNumber:focus{
     animation: focus-animation 600ms ease 0s forwards;
     
+}
+#new-base-input{
+    flex-direction: column; 
 }
 
 #results{
@@ -128,6 +130,19 @@ button{
     border-radius: 3vh;
     padding: 8px 90px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+}
+#add-bases{
+    border-radius: 4px;
+    color:#909090;
+    background-color: #EBEBEB;
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+#new-base-input{
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+    
 }
 @keyframes focus-animation {
     0%{background-color: #F0F0F0;}
