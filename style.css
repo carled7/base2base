@@ -18,12 +18,11 @@ header{
     height: 5rem;
     color:#141414;
 }
-h1{
-    display: inline;
-    line-height: 4.3rem;
-    margin-left: 17%;
-    
-} 
+img{
+    height: 2.7rem;
+    margin: 15px 0px 0px 17%;
+}
+
 nav{
     float: right;
     line-height: 4.3rem;
@@ -38,7 +37,7 @@ nav{
 #input-area{
     display: flex;
     color: #D9d9D9;
-    height: 45vh;
+    height: 80vh;
     justify-content: center;
     align-items: center;
     background-color: transparent;
@@ -77,8 +76,33 @@ input:focus, select:focus{
     animation: focus-animation 600ms ease 0s forwards;
     
 }
+#insert-new-base{
+    position: relative;
+    top: -30vh;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+#new-base-input, #new-base-button{
+    padding: 8px 15px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px;
+    font-size: 12pt;
+}
 #new-base-input{
-    flex-direction: column; 
+    background-color: #EBEBEB;
+    border-radius: 20px 0px 0px 20px;
+    width: 150px;
+    z-index: 1;
+}
+#new-base-button{
+    border-radius: 0px 20px 20px 0px;
+    background-color: #FB3640;
+    color: white;
+}
+#new-base-button:hover{
+    background-color: #E0313A;;
 }
 
 #results{
@@ -126,7 +150,7 @@ strong{
     display: flex;
     border: none;
     margin: 15px auto ;
-    font-size: 14pt;
+    font-size: 13pt;
     border-radius: 3vh;
     padding: 8px 90px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
@@ -150,6 +174,10 @@ strong{
 @keyframes scaling-input-area {
     0%{height: 45vh;}
     100%{height: 23vh;}
+}
+@keyframes scaling-new-base-input {
+    0%{top: -30vh;}
+    100%{top: -5vh;}
 }
 @keyframes scaling-input-field {
     0%{font-size: 8vw;}

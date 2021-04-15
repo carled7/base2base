@@ -66,6 +66,9 @@ function printResults() {
         let inputArea = document.getElementById('input-area');
         inputArea.classList.add('showed-results')
         inputArea.style.animation = 'scaling-input-area 150ms ease 0s forwards';
+        
+        let newBaseInput = document.getElementById('insert-new-base');
+        newBaseInput.style.animation = 'scaling-new-base-input 50ms ease 0s forwards';
 
         let inputField = document.getElementById('inputNumber');
         inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
@@ -219,10 +222,14 @@ function showInput(){
 
     let inputNewBase = document.createElement("input"); 
     inputNewBase.id = "new-base-input";
+    inputNewBase.setAttribute('type', 'number');
+    inputNewBase.setAttribute('min', '3');
+    inputNewBase.setAttribute('max', '15');
     inputNewBase.placeholder = "insert new base";
     newBaseDiv.appendChild(inputNewBase);
 
     let buttonNewBase = document.createElement("button");
+    buttonNewBase.id = "new-base-button";
     buttonNewBase.innerText = "add";
     buttonNewBase.setAttribute('onclick', 'addNewBase()');
     newBaseDiv.appendChild(buttonNewBase);
