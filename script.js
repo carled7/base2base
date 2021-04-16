@@ -8,11 +8,19 @@ let results = document.getElementById("results");
 let x = "something";
 let addedBase = [];
 
+
 function receiveNumber() {
     //receive the number and its base selected by the user
-    let inputNumber = document.getElementById("inputNumber");
-    inputNumber = inputNumber.value.toString();
+    let inputNumberElement = document.getElementById("inputNumber");
+    let inputNumber = inputNumberElement.value.toString();
     digits = inputNumber.split('');
+
+    if (digits.length >= 7 && digits.length <= 10) {
+        inputNumberElement.style.width = (35 + (digits.length - 7) * 4) + "vw";
+    }
+    if (digits.length > 10 && digits.length < 14) {
+        inputNumberElement.style.fontSize = 8 - (digits.length - 10) + 'vw';
+    }
     inputBase = document.getElementById("base");
     if (!inputBase.value == "") {
 
@@ -66,60 +74,67 @@ function printResults() {
         let inputArea = document.getElementById('input-area');
         inputArea.classList.add('showed-results')
         inputArea.style.animation = 'scaling-input-area 150ms ease 0s forwards';
-        
+
         let newBaseInput = document.getElementById('insert-new-base');
         newBaseInput.style.animation = 'scaling-new-base-input 50ms ease 0s forwards';
 
         let inputField = document.getElementById('inputNumber');
         inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
 
+        if (digits.length > 10) {
+            inputField.style.animation = 'scaling-input-font-size 150ms ease 0s forwards';
+        }
+
         let width = 320;
         if (converted.length >= 7) {
-            width = width * (1 + 0.15 * (converted.length - 6));
-            baseIndication.style.width = `${width}px`;
+            width = (width + (converted.length - 7) * 30);
+            baseIndication.style.width = width + "pt";
         }
 
         converted = converted.reverse().join('');
         switch (outputBases[i]) {
             case '(2)':
 
-                baseIndication.innerHTML = `<p id="base-indicator"><strong>binary</strong> base</p>
-                                            <div id="divider"></div>
-                                            <p id="converted-number">${converted}</p>
-                                            <button id="copy-button">copy</button>`;
+                baseIndication.innerHTML = `<p class="base-indicator"><strong>binary</strong> base</p>
+                                            <div class="divider"></div>
+                                            <p class="converted-number" id="bin">${converted}</p>
+                                            <button class="copy-button">copy</button>`;
                 //result.innerText = converted;
                 results.appendChild(baseIndication);
                 //results.appendChild(result);
                 break;
             case '(8)':
-                baseIndication.innerHTML = `<p id="base-indicator"><strong>octal</strong> base</p>
-                                            <div id="divider"></div>
-                                            <p id="converted-number">${converted}</p>
-                                            <button id="copy-button">copy</button>`;
+                baseIndication.innerHTML = `<p class="base-indicator"><strong>octal</strong> base</p>
+                                            <div class="divider"></div>
+                                            <p class="converted-number" id="oct">${converted}</p>
+                                            <button class="copy-button">copy</button>`;
                 results.appendChild(baseIndication);
                 break;
             case '(10)':
-                baseIndication.innerHTML = `<p id="base-indicator"><strong>decimal</strong> base</p>
-                                            <div id="divider"></div>
-                                            <p id="converted-number">${converted}</p>
-                                            <button id="copy-button">copy</button>`;
+                baseIndication.innerHTML = `<p class="base-indicator"><strong>decimal</strong> base</p>
+                                            <div class="divider"></div>
+                                            <p class="converted-number" id="dec">${converted}</p>
+                                            <button class="copy-button">copy</button>`;
                 results.appendChild(baseIndication);
                 break;
             case '(16)':
-                baseIndication.innerHTML = `<p id="base-indicator"><strong>hexadecimal</strong> base</p>
-                                            <div id="divider"></div> 
-                                            <p id="converted-number">${converted}</p>
-                                            <button id="copy-button">copy</button>`;
+                baseIndication.innerHTML = `<p class="base-indicator"><strong>hexadecimal</strong> base</p>
+                                            <div class="divider"></div> 
+                                            <p class="converted-number" id="hex">${converted}</p>
+                                            <button class="copy-button">copy</button>`;
                 results.appendChild(baseIndication);
                 break;
             default:
-                baseIndication.innerHTML = `<p id="base-indicator"><strong>(${outputBases[i]})</strong> base</p>
-                                            <div id="divider"></div> 
-                                            <p id="converted-number">${converted}</p>
-                                            <button id="copy-button">copy</button>`;
+                baseIndication.innerHTML = `<p class="base-indicator"><strong>(${outputBases[i]})</strong> base</p>
+                                            <div class="divider"></div> 
+                                            <p class="converted-number" class="new">${converted}</p>
+                                            <button class="copy-button">copy</button>`;
                 results.appendChild(baseIndication);
                 break;
+
         }
+
+
         ++i;
     }
 
@@ -214,13 +229,13 @@ function replaceNum(digit) {
     }
 }
 
-function showInput(){
+function showInput() {
     let addButton = document.getElementById("add-bases");
     addButton.remove();
 
     let newBaseDiv = document.getElementById('insert-new-base');
 
-    let inputNewBase = document.createElement("input"); 
+    let inputNewBase = document.createElement("input");
     inputNewBase.id = "new-base-input";
     inputNewBase.setAttribute('type', 'number');
     inputNewBase.setAttribute('min', '3');
@@ -233,17 +248,31 @@ function showInput(){
     buttonNewBase.innerText = "add";
     buttonNewBase.setAttribute('onclick', 'addNewBase()');
     newBaseDiv.appendChild(buttonNewBase);
+
+    let inputArea = document.getElementById('input-area');
+    inputArea.classList.add('showed-results')
+    inputArea.style.animation = 'scaling-input-area 150ms ease 0s forwards';
+
+    let inputField = document.getElementById('inputNumber');
+    inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
+
+    
 }
 
-function addNewBase(){
+function addNewBase() {
     let newBase = document.getElementById('new-base-input');
     basesConverter.push(parseInt(newBase.value));
-
     let selectTag = document.getElementById('base');
     let newOptionTag = document.createElement('option');
-    newOptionTag.setAttribute('value', `${newBase.value}`)
+    newOptionTag.setAttribute('value', `${newBase.value}`);
     newOptionTag.innerHTML = `(${newBase.value})`;
     selectTag.appendChild(newOptionTag);
+        
+    selectTag.style.animation = 'new-base-verifier 400ms ease 0s';
+
+    setTimeout( ()=>{
+        selectTag.removeAttribute('style');
+    }, 1000);
 
     receiveNumber();
 }

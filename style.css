@@ -19,7 +19,7 @@ header{
     color:#141414;
 }
 img{
-    height: 2.7rem;
+    height: 2.5rem;
     margin: 15px 0px 0px 17%;
 }
 
@@ -36,12 +36,12 @@ nav{
 
 #input-area{
     display: flex;
+    
     color: #D9d9D9;
     height: 80vh;
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    margin-bottom: 3vw;
 }
 
 #inputNumber, select{    
@@ -57,16 +57,15 @@ nav{
     width: 35vw;
     background-color:#F0F0F0;
     border-radius: 1vw;
-    
     color:#141414;
 }
 select{
-    font-size: 3vw;
+    font-size: 2vw;
     appearance: none;
+    padding: 15px 5px;
     text-align: center;
     background-color: #EBEBEB;
     border-radius: 0px 1vw 1vw 0px;
-
 }
 
 input:focus, select:focus{
@@ -77,10 +76,9 @@ input:focus, select:focus{
     
 }
 #insert-new-base{
-    position: relative;
-    top: -30vh;
     width: 70%;
     margin: auto;
+    margin-bottom: 3vh;
     display: flex;
     justify-content: center;
 }
@@ -94,8 +92,10 @@ input:focus, select:focus{
     background-color: #EBEBEB;
     border-radius: 20px 0px 0px 20px;
     width: 150px;
+    -moz-appearance: textfield;
     z-index: 1;
 }
+
 #new-base-button{
     border-radius: 0px 20px 20px 0px;
     background-color: #FB3640;
@@ -122,28 +122,30 @@ input:focus, select:focus{
     border-radius: 1vw;
     margin: 10px 10px;
     width: 320px;
+    max-width: 90%;
     height: 190px;
+    overflow: hidden;
 }
-#base-indicator{
+.base-indicator{
     margin: 15px 0% 5px 25px;
     font-size: 14pt;
 }
 strong{
     color: #FB3640;
 }
-#divider{
+.divider{
     height: 3px;
     width: calc(100% - 50px);
     background-color: #141414;
     margin: auto;
 }
-#converted-number{
+.converted-number{
     text-align: right;
     margin-right: 25px;
     font-size: 60pt;
     line-height: 90%;
 }
-#copy-button{
+.copy-button{
     align-items: center;
     background-color: #FB3640;
     color: white;
@@ -183,7 +185,19 @@ strong{
     0%{font-size: 8vw;}
     100%{font-size: 6vw;}
 }
+@keyframes scaling-input-font-size {
+    0%{font-size: 6vw;}
+    100%{font-size: 5vw;}
+}
+@keyframes scaling-output-numbers {
+    0%{font-size: 60pt;}
+    100%{font-size: 50pt;}    
+}
 @keyframes show-results-area {
     0%{display: none;}
     100%{display: grid;}
+}
+@keyframes new-base-verifier {
+    0%{background-color: #EBEBEB;}
+    100%{background-color: #FB3640;}
 }
