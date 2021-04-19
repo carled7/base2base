@@ -65,7 +65,7 @@ function printResults() {
 
     results.innerHTML = '';
     let i = 0;
-
+    let t = 1;
     for (converted of convertedNumber) {
         //let result = document.createElement('div');
         let baseIndication = document.createElement('div');
@@ -80,7 +80,12 @@ function printResults() {
 
         let inputField = document.getElementById('inputNumber');
         inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
+        try {
+            let newBaseButton = document.getElementById('add-bases');
+            newBaseButton.style.animation = 'new-base-button-resize 150ms ease 0s forwards';
+        } catch (err) {
 
+        }
         if (digits.length > 10) {
             inputField.style.animation = 'scaling-input-font-size 150ms ease 0s forwards';
         }
@@ -97,8 +102,9 @@ function printResults() {
 
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>binary</strong> base</p>
                                             <div class="divider"></div>
-                                            <p class="converted-number" id="bin">${converted}</p>
-                                            <button class="copy-button">copy</button>`;
+                                            <input class="converted-number" id="bin" value="${converted}">
+                                            <button class="copy-button" onclick="copyToClipboard('bin')"><img src="./assets/copy.svg" alt="copy">
+                                            </button>`;
                 //result.innerText = converted;
                 results.appendChild(baseIndication);
                 //results.appendChild(result);
@@ -106,30 +112,36 @@ function printResults() {
             case '(8)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>octal</strong> base</p>
                                             <div class="divider"></div>
-                                            <p class="converted-number" id="oct">${converted}</p>
-                                            <button class="copy-button">copy</button>`;
+                                            <input class="converted-number" id="oct" value="${converted}">
+                                            <button class="copy-button" onclick="copyToClipboard('oct')"><img src="./assets/copy.svg" alt="copy">
+                                            </button>`;
                 results.appendChild(baseIndication);
                 break;
             case '(10)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>decimal</strong> base</p>
                                             <div class="divider"></div>
-                                            <p class="converted-number" id="dec">${converted}</p>
-                                            <button class="copy-button">copy</button>`;
+                                            <input class="converted-number" id="dec" value="${converted}">
+                                            <button class="copy-button" onclick="copyToClipboard('dec')"><img src="./assets/copy.svg" alt="copy">
+                                            </button>`;
                 results.appendChild(baseIndication);
                 break;
             case '(16)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>hexadecimal</strong> base</p>
                                             <div class="divider"></div> 
-                                            <p class="converted-number" id="hex">${converted}</p>
-                                            <button class="copy-button">copy</button>`;
+                                            <input class="converted-number" id="hex" value="${converted}">
+                                            <button class="copy-button" onclick="copyToClipboard('hex')"><img src="./assets/copy.svg" alt="copy">
+                                            </button>`;
                 results.appendChild(baseIndication);
                 break;
             default:
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>(${outputBases[i]})</strong> base</p>
                                             <div class="divider"></div> 
-                                            <p class="converted-number" class="new">${converted}</p>
-                                            <button class="copy-button">copy</button>`;
+                                            <input class="converted-number" id="new${t}" value="${converted}">
+                                            <button class="copy-button" onclick="copyToClipboard(${t},'addedBase')">
+                                            <img src="./assets/copy.svg" alt="copy">
+                                            </button>`;
                 results.appendChild(baseIndication);
+                ++t;
                 break;
 
         }
@@ -256,23 +268,52 @@ function showInput() {
     let inputField = document.getElementById('inputNumber');
     inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
 
-    
+
 }
 
 function addNewBase() {
+    let baseChecker
     let newBase = document.getElementById('new-base-input');
-    basesConverter.push(parseInt(newBase.value));
-    let selectTag = document.getElementById('base');
-    let newOptionTag = document.createElement('option');
-    newOptionTag.setAttribute('value', `${newBase.value}`);
-    newOptionTag.innerHTML = `(${newBase.value})`;
-    selectTag.appendChild(newOptionTag);
-        
-    selectTag.style.animation = 'new-base-verifier 400ms ease 0s';
+    for (base of basesConverter) {
+        if (newBase.value != base) {
+            baseChecker = true;
+        }
+        else {
+            baseChecker = false;
+        }
+    }
+    if (baseChecker) {
+        basesConverter.push(parseInt(newBase.value));
+        let selectTag = document.getElementById('base');
+        let newOptionTag = document.createElement('option');
+        newOptionTag.setAttribute('value', `${newBase.value}`);
+        newOptionTag.innerHTML = `(${newBase.value})`;
+        selectTag.appendChild(newOptionTag);
+        selectTag.style.animation = 'new-base-verifier 400ms ease 0s';
 
-    setTimeout( ()=>{
-        selectTag.removeAttribute('style');
+        setTimeout(() => {
+            selectTag.removeAttribute('style');
+        }, 1000);
+
+        receiveNumber();
+    }
+}
+function copyToClipboard(id, num) {
+
+    if (num) {
+        var copiedNumber = document.getElementById(`new${id}`);
+        console.log(id);
+        copiedNumber.select();
+        document.execCommand('copy');
+    } else {
+        var copiedNumber = document.getElementById(id);
+        copiedNumber.select();
+        document.execCommand('copy');
+    }
+    var copiedAlert = document.getElementById('copied-alert');
+
+    copiedAlert.style.animation = 'showing-alert 150ms'
+    setTimeout(() => {
+        copiedAlert.style.display = 'none';
     }, 1000);
-
-    receiveNumber();
 }

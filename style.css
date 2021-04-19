@@ -6,6 +6,9 @@
 body{
     background-color: #F9F9F9;
 }
+main{
+    position: relative;
+}
 #limiter{
     background-color: #FB3640;
     width: 70%;
@@ -58,6 +61,7 @@ nav{
     background-color:#F0F0F0;
     border-radius: 1vw;
     color:#141414;
+    z-index: 1;
 }
 select{
     font-size: 2vw;
@@ -73,8 +77,10 @@ input:focus, select:focus{
 }
 #inputNumber:focus{
     animation: focus-animation 600ms ease 0s forwards;
-    
 }
+
+
+/* INPUT NEW BASE SECTION */
 #insert-new-base{
     width: 70%;
     margin: auto;
@@ -84,60 +90,78 @@ input:focus, select:focus{
 }
 #new-base-input, #new-base-button{
     padding: 8px 15px;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px;
-    font-size: 12pt;
+    border: none;    
+    font-size: 14pt;
 }
 #new-base-input{
     background-color: #EBEBEB;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 4px 0px 0px 4px;
     width: 150px;
     -moz-appearance: textfield;
-    z-index: 1;
 }
 
 #new-base-button{
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 4px 4px 0px;
     background-color: #FB3640;
     color: white;
+    transition: background-color 150ms;
 }
 #new-base-button:hover{
     background-color: #E0313A;;
 }
+#copied-alert{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 200px;
+    margin: auto;
+    position: fixed;
+    justify-content: center;
+    display: none;
+    right: 0;
+    left: 0;
+    padding: 10px 20px;
+    border-radius: 4px;
+    top: 640px;
+}
 
-#results{
-    
+
+/*RESULTS SECTION */
+#results{    
     width: 70%;
     display: flex;
     flex-wrap: wrap;
-    
-    margin: auto ;
-    
+    margin: auto ;    
     justify-items: center;
     justify-content: center;
-    
 }
-#content-areas{
-    background-color: #EBEBEB;
+#content-areas{    
     border-radius: 1vw;
     margin: 10px 10px;
     width: 320px;
     max-width: 90%;
     height: 190px;
-    overflow: hidden;
 }
 .base-indicator{
-    margin: 15px 0% 5px 25px;
+    margin: 0px 0% 5px 10px;
     font-size: 14pt;
+    width: 200px;
 }
 strong{
     color: #FB3640;
 }
-.divider{
-    height: 3px;
-    width: calc(100% - 50px);
-    background-color: #141414;
-    margin: auto;
+input.converted-number{
+    width: calc(100% - 25px);
+    background-color: #EBEBEB;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding: 15px 10px;
+    margin-right: 0px;
+}
+input::selection{
+    background-color: transparent;
+    color: #FB3640;
 }
 .converted-number{
     text-align: right;
@@ -145,24 +169,43 @@ strong{
     font-size: 60pt;
     line-height: 90%;
 }
+
 .copy-button{
-    align-items: center;
     background-color: #FB3640;
-    color: white;
-    display: flex;
     border: none;
-    margin: 15px auto ;
-    font-size: 13pt;
-    border-radius: 3vh;
-    padding: 8px 90px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+    display: flex;
+    width: 40px;
+    border-radius: 20px;
+    margin-left: 10px;
+    position: relative;
+    top: -20px;
+    transition: background-color 150ms;
+}
+.copy-button:hover{
+    background-color: #E0313A;
+}
+[alt="copy"]{
+    width: 20px;
+    margin: 0;
+    align-content: center;
+    margin: auto;
 }
 #add-bases{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    top: -25vh;
     border-radius: 4px;
     color:#909090;
-    background-color: #EBEBEB;
+    background-color: #F0F0F0;
     padding: 10px 20px;
-    margin-left: 10px;
+    font-size: 14pt;
+    margin:auto;
+    transition: width 150ms, background-color 150ms;
+}
+#add-bases:hover{
+    width: 110px;
+    background-color: #E3E3E3;
 }
 #new-base-input{
     display: flex;
@@ -199,5 +242,13 @@ strong{
 }
 @keyframes new-base-verifier {
     0%{background-color: #EBEBEB;}
-    100%{background-color: #FB3640;}
+    100%{background-color: #FB3640; color: white;}
+}
+@keyframes new-base-button-resize {
+    0%{top: -25vh;}
+    100%{top: 0vh;}
+}
+@keyframes showing-alert {
+    0%{display: none;}
+    100%{display: flex;}
 }
