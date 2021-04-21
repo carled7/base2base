@@ -64,6 +64,8 @@ function convertToBase(num) {
 function printResults() {
 
     results.innerHTML = '';
+
+    results.style.opacity = '0';
     let i = 0;
     let t = 1;
     for (converted of convertedNumber) {
@@ -73,7 +75,7 @@ function printResults() {
 
         let inputArea = document.getElementById('input-area');
         inputArea.classList.add('showed-results')
-        inputArea.style.animation = 'scaling-input-area 150ms ease 0s forwards';
+        inputArea.style.height = '30vh';
 
         let newBaseInput = document.getElementById('insert-new-base');
         newBaseInput.style.animation = 'scaling-new-base-input 50ms ease 0s forwards';
@@ -145,10 +147,12 @@ function printResults() {
                 break;
 
         }
-
-
         ++i;
+
+        results.style.opacity = '1';
+
     }
+
 
 }
 
@@ -263,7 +267,7 @@ function showInput() {
 
     let inputArea = document.getElementById('input-area');
     inputArea.classList.add('showed-results')
-    inputArea.style.animation = 'scaling-input-area 150ms ease 0s forwards';
+    inputArea.style.height = '30vh';
 
     let inputField = document.getElementById('inputNumber');
     inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
@@ -272,16 +276,25 @@ function showInput() {
 }
 
 function addNewBase() {
-    let baseChecker
+    let baseChecker = true;
     let newBase = document.getElementById('new-base-input');
     for (base of basesConverter) {
-        if (newBase.value != base) {
-            baseChecker = true;
-        }
-        else {
+        if (parseInt(newBase.value) == base) {
             baseChecker = false;
-        }
+            showAlert('this base already exists');
+        }        
     }
+    if(!newBase.value){
+        baseChecker = false;
+        showAlert('type a number');
+    }
+    if(newBase.value > 15 || newBase.value <3 && newBase.value){
+        baseChecker = false;
+        showAlert('type a number between 3 and 15')
+    }
+    console.log(parseInt(newBase.value));
+    console.log(baseChecker);
+
     if (baseChecker) {
         basesConverter.push(parseInt(newBase.value));
         let selectTag = document.getElementById('base');
@@ -289,11 +302,14 @@ function addNewBase() {
         newOptionTag.setAttribute('value', `${newBase.value}`);
         newOptionTag.innerHTML = `(${newBase.value})`;
         selectTag.appendChild(newOptionTag);
-        selectTag.style.animation = 'new-base-verifier 400ms ease 0s';
+       
+        selectTag.style.backgroundColor = '#FB3640';
+        selectTag.style.color = '#FFF';
+
 
         setTimeout(() => {
             selectTag.removeAttribute('style');
-        }, 1000);
+        }, 350);
 
         receiveNumber();
     }
@@ -310,10 +326,17 @@ function copyToClipboard(id, num) {
         copiedNumber.select();
         document.execCommand('copy');
     }
+    let alert = 'copied to clipboard';
+    showAlert(alert);
+}
+function showAlert(alert){
     var copiedAlert = document.getElementById('copied-alert');
-
-    copiedAlert.style.animation = 'showing-alert 150ms'
+    copiedAlert.innerText = alert;
+    copiedAlert.style.transition = 'opacity 150ms ease, width 150ms ease';
+    copiedAlert.style.opacity = '1';
+    copiedAlert.style.width = alert.length * 10 + 'px';
     setTimeout(() => {
-        copiedAlert.style.display = 'none';
+        copiedAlert.style.opacity = '0';
+        copiedAlert.style.width = '150px';
     }, 1000);
 }
