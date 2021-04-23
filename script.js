@@ -335,6 +335,7 @@ function showAlert(alert){
     copiedAlert.style.transition = 'opacity 150ms ease, width 150ms ease';
     copiedAlert.style.opacity = '1';
     copiedAlert.style.width = alert.length * 10 + 'px';
+    copiedAlert.style.zIndex = '1';
     setTimeout(() => {
         copiedAlert.style.opacity = '0';
         copiedAlert.style.width = '150px';

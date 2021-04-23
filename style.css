@@ -1,3 +1,4 @@
+/* HEADER - BEGIN */
 *{
     margin: 0;
     padding: 0;
@@ -5,8 +6,6 @@
 }
 body{
     background-color: #F9F9F9;
-}
-main{
     position: relative;
 }
 #limiter{
@@ -25,7 +24,6 @@ img{
     height: 2.5rem;
     margin: 15px 0px 0px 17%;
 }
-
 nav{
     float: right;
     line-height: 4.3rem;
@@ -36,7 +34,9 @@ nav{
 .nav-items{
     margin-left: 30px;   
 }
+/* HEADER - END */
 
+/* MAIN INPUT - BEGIN */
 #input-area{
     display: flex;
     transition: 150ms;
@@ -45,54 +45,75 @@ nav{
     align-items: center;
     background-color: transparent;
 }
-
-#inputNumber, select{    
+#inputNumber, #base{    
     text-align: center;
     background-color: transparent;
     border: none;
     color: #909090;
-    
+    transition: all 100ms ease;
     padding: 10px 0;
 }
 #inputNumber{
-    font-size: 8vw;
+    font-size: 700%;
     width: 35vw;
+    max-width: 500px;
     background-color:#F0F0F0;
-    border-radius: 1vw;
+    border-radius: 10px;
     color:#141414;
-    z-index: 1;
+    transition: background-color 300ms ease;
 }
 #base{
-    font-size: 2vw;
+    font-size: 2em;
     appearance: none;
     padding: 12px 5px 15px 5px;
     text-align: center;
-    border-radius: 0px 1vw 1vw 0px;
+    border-radius: 0px 10px 10px 0px;
     background-color: #EBEBEB;
-    transition: 350ms ease;
+    transition: background-color 300ms ease;
 }
 input:focus, select:focus{
     outline-style: none;        
 }
-#inputNumber:focus{
-    animation: focus-animation 600ms ease 0s forwards;
+#inputNumber:focus, #base:focus{
+    background-color: #E3E3E3;
 }
+/* MAIN INPUT - END */
 
 
-/* INPUT NEW BASE SECTION */
+/* INPUT NEW BASE - BEGIN */
 #insert-new-base{
     width: 70%;
-    margin: auto;
     margin-bottom: 3vh;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;  
+    margin: auto;  
+}
+#add-bases{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    top: -25vh;
+    border-radius: 4px;
+    color:#909090;
+    background-color: #EBEBEB;
+    padding: 10px 20px;
+    font-size: 14pt;
+    margin:auto;
+    transition: width 150ms, background-color 150ms;
+}
+#add-bases:hover{
+    width: 110px;
+    background-color: #E3E3E3;
+}
+#new-base-input{
+    display: flex;
+    align-items: center; 
 }
 #new-base-input, #new-base-button{
     padding: 8px 15px;
     border: none;    
     font-size: 14pt;
-    
+    animation: fade-in 150ms 0s ease forwards;
 }
 #new-base-input{
     background-color: #F0F0F0;
@@ -201,32 +222,8 @@ input::selection{
     align-content: center;
     margin: auto;
 }
-#add-bases{
-    width: 100px;
-    text-align: center;
-    position: relative;
-    top: -25vh;
-    border-radius: 4px;
-    color:#909090;
-    background-color: #F0F0F0;
-    padding: 10px 20px;
-    font-size: 14pt;
-    margin:auto;
-    transition: width 150ms, background-color 150ms;
-}
-#add-bases:hover{
-    width: 110px;
-    background-color: #E3E3E3;
-}
-#new-base-input{
-    display: flex;
-    align-items: center; 
-}
 
-@keyframes focus-animation {
-    0%{background-color: #F0F0F0;}
-    100%{background-color: #E3E3E3;}
-}
+
 
 @keyframes scaling-new-base-input {
     0%{top: -30vh;}
@@ -259,4 +256,8 @@ input::selection{
 @keyframes showing-alert {
     0%{display: none;}
     100%{display: flex;}
+}
+@keyframes fade-in {
+    from    {opacity: 0;}
+    to      {opacity: 1;}
 }
