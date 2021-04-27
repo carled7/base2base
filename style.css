@@ -40,7 +40,7 @@ nav{
 #input-area{
     display: flex;
     transition: 150ms;
-    height: 80vh;
+    height: 90vh;
     justify-content: center;
     align-items: center;
     background-color: transparent;
@@ -54,7 +54,7 @@ nav{
     padding: 10px 0;
 }
 #inputNumber{
-    font-size: 700%;
+    font-size:   6vw;
     width: 35vw;
     max-width: 500px;
     background-color:#F0F0F0;
@@ -215,6 +215,40 @@ input::selection{
 }
 /*RESULTS SECTION - END */
 
+/* HOW TO CONVERT - BEGIN */
+#how-to-convert{
+    width: 45%;
+    max-width: 900px;
+    margin: auto;
+    color: #333333;
+}
+.htc-title{
+    margin: 20px 0 5px 0 ;
+}
+.line{
+    width: 100%;
+    margin: auto;
+    height: 2px;
+    background-color: #E3E3E3;
+    border: none;
+}
+.htc-paragraph{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12pt;
+    line-height: 20pt;
+    margin: 15px 0;
+}
+b{
+    font-family: 'Roboto', sans-serif;
+    color: #FB3640;
+}
+.htc-image{
+    height: 324px;
+    display: block;
+    margin: 25px auto;
+}
+/*HOW TO CONVERT - END */
 @keyframes scaling-new-base-input {
     0%{top: -30vh;}
     100%{top: -5vh;}

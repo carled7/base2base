@@ -10,8 +10,9 @@
     <link rel="icon" href="./assets/icon.png">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet"> 
      
 </head>
 
@@ -45,6 +46,22 @@
         <div id="insert-new-base"></div>
         <div id="copied-alert"></div>
         <section id="results"></section>
+        <section id="how-to-convert">
+            <h2 class="htc-title">how to convert</h2>
+            <div class="line"></div>
+            <p class="htc-paragraph">The numbers are <b>units of counting</b>, the way we represent them consists in write the respective digits in the right order, so we can read what that number is. The process of converting numeric bases consists in set <b>how many digits are available</b> to represent a specific numeral. We usually write numbers in the decimal base, witch means that there are ten digits (0 to 9) available, but what if we have eight or even two? </p>
+            <h2 class="htc-title">from decimal</h2>
+            <div class="line"></div>
+            <p class="htc-paragraph">To convert a number represented in the decimal base to any other base, there's a method that consists in divide the decimal number by the base that you want to convert, <b>the base will be the amount of digits available</b>. So, if you want to convert to binary base, two would be the digits available.</p>
+            <p class="htc-paragraph">We will divide the number by the base that you want to convert to, and we continue the division by dividing the resulted quotient by the base <b>until the quotient is less than the base</b>. Once that happen, the last quotient concatenated with all the remainders, from the last to first, will be the converted number. For example, let's convert eleven to the binary base:</p>
+            <img src="./assets/fromDecTemp1.png" alt="converting from decimal" class="htc-image">
+            <p class="htc-paragraph">We also can use other division template that facilitates this conversion:</p>
+            <img src="./assets/fromDecTemp2.png" alt="converting from decimal with alternative template" class="htc-image">
+            <h2 class="htc-title">to decimal</h2>
+            <div class="line"></div>
+            <p class="htc-paragraph">To convert a number represented in any base to decimal, the method consists in add the products of each multiplication of each digit that compound the number by its base raise to the power of the digit's position. <b>It is easer than it seems</b>, first of all, the position of witch digit will be counted from right to left, starting from zero. So if we want to convert the number 523, the digit 3 is in the position zero, 2 is in the position 1 and 5 is in the position 3. Second, we'll multiply each digit by the base that <b>will be raised to the power of the respective position</b> we just figure out. Third, we'll add all these resulted products, see the example, converting 523 in the octal base to decimal:</p>
+            <img src="./assets/toDec.png" alt="converting to decimal" class="htc-image">
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
