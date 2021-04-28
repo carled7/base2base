@@ -45,13 +45,30 @@ nav{
     align-items: center;
     background-color: transparent;
 }
-#inputNumber, #base{    
+#inputNumber, #base, #add-bases{    
     text-align: center;
-    background-color: transparent;
     border: none;
     color: #909090;
     transition: all 100ms ease;
-    padding: 10px 0;
+}
+#base, #add-bases{
+    text-align: center;
+    background-color: #EBEBEB;
+    width: 70px;
+
+}
+#add-bases{
+    font-size: 18pt;
+    line-height: 20pt;
+    border-radius: 4px;
+    border-radius: 10px 0px 0px 10px;
+    color:#909090;
+    padding: 10px 4px;
+    margin: 0;
+}
+#add-bases:hover, #base:hover, #inputNumber:hover{
+    scale: 1.02;
+    background-color: #E3E3E3;
 }
 #inputNumber{
     font-size:   6vw;
@@ -60,21 +77,18 @@ nav{
     background-color:#F0F0F0;
     border-radius: 10px;
     color:#141414;
-    transition: background-color 300ms ease;
+    z-index: 1;
 }
 #base{
-    font-size: 2em;
+    padding: 18px 5px 20px 3px;
+    font-size: 20pt;
     appearance: none;
-    padding: 12px 5px 15px 5px;
-    text-align: center;
     border-radius: 0px 10px 10px 0px;
-    background-color: #EBEBEB;
-    transition: background-color 300ms ease;
 }
 input:focus, select:focus{
     outline-style: none;        
 }
-#inputNumber:focus, #base:focus{
+#inputNumber:focus{
     background-color: #E3E3E3;
 }
 /* MAIN INPUT - END */
@@ -88,23 +102,7 @@ input:focus, select:focus{
     justify-content: center;  
     margin: auto;  
 }
-#add-bases{
-    width: 100px;
-    text-align: center;
-    position: relative;
-    top: -25vh;
-    border-radius: 4px;
-    color:#909090;
-    background-color: #EBEBEB;
-    padding: 10px 20px;
-    font-size: 14pt;
-    margin:auto;
-    transition: width 150ms, background-color 150ms;
-}
-#add-bases:hover{
-    width: 110px;
-    background-color: #E3E3E3;
-}
+
 #new-base-input, #new-base-button{
     padding: 8px 15px;
     border: none;    

@@ -30,7 +30,8 @@
             </nav>
         </header>
         <section id="input-area">
-            
+                    <div id="add-bases" onclick="showInput()">add base</div>
+
             <input type="text" name="inputNumber" id="inputNumber" placeholder="number"
                 oninput="receiveNumber()">
             <select name="base" id="base" oninput="receiveNumber()">
@@ -41,7 +42,6 @@
                 <option value="16">(16)</option>
             </select>
         </section>
-        <div id="add-bases" onclick="showInput()">new base</div>
 
         <div id="insert-new-base"></div>
         <div id="copied-alert"></div>

@@ -246,8 +246,6 @@ function replaceNum(digit) {
 }
 
 function showInput() {
-    let addButton = document.getElementById("add-bases");
-    addButton.remove();
 
     let newBaseDiv = document.getElementById('insert-new-base');
 
