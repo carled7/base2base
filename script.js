@@ -5,7 +5,7 @@ let inputBase;
 let outputBases = [];
 let convertedNumber = [];
 let results = document.getElementById("results");
-let x = "something";
+let x = 0;
 let addedBase = [];
 
 
@@ -22,7 +22,7 @@ function receiveNumber() {
         inputNumberElement.style.fontSize = 8 - (digits.length - 10) + 'vw';
     }
     inputBase = document.getElementById("base");
-    if (!inputBase.value == "") {
+    if (inputBase.value != "" && inputNumber != "") {
 
         //if the base is different to 10, it will be converted to it
         if (inputBase.value != 10) {
@@ -249,27 +249,29 @@ function showInput() {
 
     let newBaseDiv = document.getElementById('insert-new-base');
 
-    let inputNewBase = document.createElement("input");
-    inputNewBase.id = "new-base-input";
-    inputNewBase.setAttribute('type', 'number');
-    inputNewBase.setAttribute('min', '3');
-    inputNewBase.setAttribute('max', '15');
-    inputNewBase.placeholder = "insert new base";
-    newBaseDiv.appendChild(inputNewBase);
+    if (x==0) {
+        let inputNewBase = document.createElement("input");
+        inputNewBase.id = "new-base-input";
+        inputNewBase.setAttribute('type', 'number');
+        inputNewBase.setAttribute('min', '3');
+        inputNewBase.setAttribute('max', '15');
+        inputNewBase.placeholder = "insert new base";
+        newBaseDiv.appendChild(inputNewBase);
 
-    let buttonNewBase = document.createElement("button");
-    buttonNewBase.id = "new-base-button";
-    buttonNewBase.innerText = "add";
-    buttonNewBase.setAttribute('onclick', 'addNewBase()');
-    newBaseDiv.appendChild(buttonNewBase);
+        let buttonNewBase = document.createElement("button");
+        buttonNewBase.id = "new-base-button";
+        buttonNewBase.innerText = "add";
+        buttonNewBase.setAttribute('onclick', 'addNewBase()');
+        newBaseDiv.appendChild(buttonNewBase);
 
-    let inputArea = document.getElementById('input-area');
-    inputArea.classList.add('showed-results')
-    inputArea.style.height = '30vh';
+        let inputArea = document.getElementById('input-area');
+        inputArea.classList.add('showed-results')
+        inputArea.style.height = '30vh';
 
-    let inputField = document.getElementById('inputNumber');
-    inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
-
+        let inputField = document.getElementById('inputNumber');
+        inputField.style.animation = 'scaling-input-field 900ms ease 0s forwards';
+        x=1;
+    }
 
 }
 
@@ -280,13 +282,13 @@ function addNewBase() {
         if (parseInt(newBase.value) == base) {
             baseChecker = false;
             showAlert('this base already exists');
-        }        
+        }
     }
-    if(!newBase.value){
+    if (!newBase.value) {
         baseChecker = false;
         showAlert('type a number');
     }
-    if(newBase.value > 15 || newBase.value <3 && newBase.value){
+    if (newBase.value > 15 || newBase.value < 3 && newBase.value) {
         baseChecker = false;
         showAlert('type a number between 3 and 15')
     }
@@ -300,7 +302,7 @@ function addNewBase() {
         newOptionTag.setAttribute('value', `${newBase.value}`);
         newOptionTag.innerHTML = `(${newBase.value})`;
         selectTag.appendChild(newOptionTag);
-       
+
         selectTag.style.backgroundColor = '#FB3640';
         selectTag.style.color = '#FFF';
 
@@ -327,7 +329,7 @@ function copyToClipboard(id, num) {
     let alert = 'copied to clipboard';
     showAlert(alert);
 }
-function showAlert(alert){
+function showAlert(alert) {
     var copiedAlert = document.getElementById('copied-alert');
     copiedAlert.innerText = alert;
     copiedAlert.style.transition = 'opacity 150ms ease, width 150ms ease';
