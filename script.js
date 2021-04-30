@@ -15,11 +15,11 @@ function receiveNumber() {
     let inputNumber = inputNumberElement.value.toString();
     digits = inputNumber.split('');
 
-    if (digits.length >= 7 && digits.length <= 10) {
-        inputNumberElement.style.width = (35 + (digits.length - 7) * 4) + "vw";
-    }
-    if (digits.length > 10 && digits.length < 14) {
-        inputNumberElement.style.fontSize = 8 - (digits.length - 10) + 'vw';
+    /*if (digits.length >= 7 && digits.length <= 10) {
+        inputNumberElement.style.width = (325 + (digits.length - 7) * 4) + "vw";
+    }*/
+    if (digits.length >= 9 && digits.length < 11) {
+        inputNumberElement.style.fontSize = 6 - (digits.length - 9) + 'vw';
     }
     inputBase = document.getElementById("base");
     if (inputBase.value != "" && inputNumber != "") {
@@ -77,25 +77,22 @@ function printResults() {
         inputArea.classList.add('showed-results')
         inputArea.style.height = '30vh';
 
-        let newBaseInput = document.getElementById('insert-new-base');
-        newBaseInput.style.animation = 'scaling-new-base-input 50ms ease 0s forwards';
-
         let inputField = document.getElementById('inputNumber');
-        inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
-        try {
-            let newBaseButton = document.getElementById('add-bases');
-            newBaseButton.style.animation = 'new-base-button-resize 150ms ease 0s forwards';
-        } catch (err) {
+        inputField.style.animation = 'scaling-input-field 350ms ease 0s forwards';
 
-        }
-        if (digits.length > 10) {
-            inputField.style.animation = 'scaling-input-font-size 150ms ease 0s forwards';
-        }
+        inputField.style.animation = 'scaling-input-font-size 150ms ease 0s forwards';
+        
+        
 
         let width = 320;
         if (converted.length >= 7) {
             width = (width + (converted.length - 7) * 30);
+
+            console.log(baseIndication);
+
+            baseIndication.style.transition = "width 400ms ease";
             baseIndication.style.width = width + "pt";
+            
         }
 
         converted = converted.reverse().join('');
@@ -265,7 +262,7 @@ function showInput() {
         newBaseDiv.appendChild(buttonNewBase);
 
         let inputArea = document.getElementById('input-area');
-        inputArea.classList.add('showed-results')
+        inputArea.classList.add('showed-results');
         inputArea.style.height = '30vh';
 
         let inputField = document.getElementById('inputNumber');

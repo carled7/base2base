@@ -39,17 +39,18 @@ nav{
 /* MAIN INPUT - BEGIN */
 #input-area{
     display: flex;
-    transition: 150ms;
+    transition: height 300ms;
     height: 90vh;
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    
 }
 #inputNumber, #base, #add-bases{    
     text-align: center;
     border: none;
     color: #909090;
-    transition: all 100ms ease;
+    transition: all 150ms ease;
 }
 #base, #add-bases{
     text-align: center;
@@ -71,7 +72,7 @@ nav{
     background-color: #E3E3E3;
 }
 #inputNumber{
-    font-size:   6vw;
+    font-size: 6vw;
     width: 35vw;
     max-width: 500px;
     background-color:#F0F0F0;
@@ -97,12 +98,12 @@ input:focus, select:focus{
 /* INPUT NEW BASE - BEGIN */
 #insert-new-base{
     width: 70%;
-    margin-bottom: 3vh;
     display: flex;
     justify-content: center;  
-    margin: auto;  
+    margin: auto;      
+    margin-bottom: 4vh;
+    transition: all 300ms ease;
 }
-
 #new-base-input, #new-base-button{
     padding: 8px 15px;
     border: none;    
@@ -143,7 +144,7 @@ input:focus, select:focus{
     left: 0;
     padding: 10px 20px;
     border-radius: 4px;
-    top: 640px;
+    top: 80vh;
     opacity: 0;
 }
 /* INPUT NEW BASE - END */
@@ -157,15 +158,18 @@ input:focus, select:focus{
     justify-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 100ms ease;
 }
 #content-areas{    
     border-radius: 1vw;
     margin: 10px 10px;
     width: 320px;
     max-width: 90%;
-    height: 190px;    
+    height: 190px;     
+    transition: all 100ms ease;
+    transition-property: width;
+
 }
+
 .base-indicator{
     margin: 0px 0% 5px 10px;
     font-size: 14pt;
@@ -247,17 +251,10 @@ b{
     margin: 25px auto;
 }
 /*HOW TO CONVERT - END */
-@keyframes scaling-new-base-input {
-    0%{top: -30vh;}
-    100%{top: -5vh;}
-}
+
 @keyframes scaling-input-field {
     0%{font-size: 8vw;}
     100%{font-size: 6vw;}
-}
-@keyframes scaling-input-font-size {
-    0%{font-size: 6vw;}
-    100%{font-size: 5vw;}
 }
 @keyframes scaling-output-numbers {
     0%{font-size: 60pt;}
@@ -270,10 +267,6 @@ b{
 @keyframes new-base-verifier {
     0%{background-color: #EBEBEB;}
     100%{background-color: #FB3640; color: white;}
-}
-@keyframes new-base-button-resize {
-    0%{top: -25vh;}
-    100%{top: 0vh;}
 }
 @keyframes showing-alert {
     0%{display: none;}
