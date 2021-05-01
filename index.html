@@ -62,6 +62,24 @@
             <p class="htc-paragraph">To convert a number represented in any base to decimal, the method consists in add the products of each multiplication of each digit that compound the number by its base raise to the power of the digit's position. <b>It is easer than it seems</b>, first of all, the position of witch digit will be counted from right to left, starting from zero. So if we want to convert the number 523, the digit 3 is in the position zero, 2 is in the position 1 and 5 is in the position 3. Second, we'll multiply each digit by the base that <b>will be raised to the power of the respective position</b> we just figure out. Third, we'll add all these resulted products, see the example, converting 523 in the octal base to decimal:</p>
             <img src="./assets/toDec.png" alt="converting to decimal" class="htc-image">
         </section>
+        <footer>
+            <h3>Thank you for using this site!</h3>
+            <p>feel free to share</p>
+            <div id="share-buttons">
+                <a href="#" id="twitter-btn" target="_blank" onclick="shareSite('twitter')">
+                    <img src="./assets/twitter.svg" alt="share on twitter">
+                </a>
+                <a href="#" id="facebook-btn" target="_blank" onclick="shareSite('facebook')">
+                    <img src="./assets/facebook.svg" alt="share on facebook">
+                </a>
+                <a href="#" id="whatsapp-btn" target="_blank" onclick="shareSite('whatsapp')">
+                    <img src="./assets/whatsapp.svg" alt="share on whatsapp">
+                </a>
+                <a id="copy-btn" onclick="shareSite('copy')">
+                    <img src="./assets/copy.svg" alt="copy link">
+                </a>
+            </div>
+        </footer>
     </main>
     <script src="script.js"></script>
 </body>

@@ -81,8 +81,8 @@ function printResults() {
         inputField.style.animation = 'scaling-input-field 350ms ease 0s forwards';
 
         inputField.style.animation = 'scaling-input-font-size 150ms ease 0s forwards';
-        
-        
+
+
 
         let width = 320;
         if (converted.length >= 7) {
@@ -92,7 +92,7 @@ function printResults() {
 
             baseIndication.style.transition = "width 400ms ease";
             baseIndication.style.width = width + "pt";
-            
+
         }
 
         converted = converted.reverse().join('');
@@ -246,7 +246,7 @@ function showInput() {
 
     let newBaseDiv = document.getElementById('insert-new-base');
 
-    if (x==0) {
+    if (x == 0) {
         let inputNewBase = document.createElement("input");
         inputNewBase.id = "new-base-input";
         inputNewBase.setAttribute('type', 'number');
@@ -267,7 +267,7 @@ function showInput() {
 
         let inputField = document.getElementById('inputNumber');
         inputField.style.animation = 'scaling-input-field 900ms ease 0s forwards';
-        x=1;
+        x = 1;
     }
 
 }
@@ -337,4 +337,37 @@ function showAlert(alert) {
         copiedAlert.style.opacity = '0';
         copiedAlert.style.width = '150px';
     }, 1000);
+}
+function shareSite(socialMedia) {
+    
+    let socialMediaUrl;
+    let urlSite = document.location.href;
+    let postTitle = encodeURI('Hey, check this out, a real time base converter: base2base.co');
+    let shareButton = document.getElementById(`${socialMedia}-btn`);
+
+    switch (socialMedia) {
+        case 'twitter':
+            socialMediaUrl = `https://twitter.com/share?url=${urlSite}&text=${postTitle}`;
+            shareButton.setAttribute('href', socialMediaUrl);
+            break;
+        case 'facebook':
+            socialMediaUrl = `https://www.facebook.com/sharer.php?u=${urlSite}`;
+            shareButton.setAttribute('href', socialMediaUrl);
+            break;
+        case 'whatsapp':
+            socialMediaUrl = `https://api.whatsapp.com/send?text=${postTitle} ${urlSite}`;
+            shareButton.setAttribute('href', socialMediaUrl);
+            break;
+        case 'copy':
+            let elementUrl = document.createElement('input');
+            shareButton.appendChild(elementUrl);
+            elementUrl.value = urlSite;  
+            
+            elementUrl.select();
+            document.execCommand('copy'); 
+            elementUrl.remove();
+
+            showAlert('URL copied to clipboard');
+            break;
+    }
 }

@@ -55,34 +55,34 @@ nav{
 #base, #add-bases{
     text-align: center;
     background-color: #EBEBEB;
-    width: 70px;
+    width: 5vw;
 
 }
 #add-bases{
-    font-size: 18pt;
-    line-height: 20pt;
+    font-size: 1.6vw;
+    line-height: 1.8vw;
     border-radius: 4px;
     border-radius: 10px 0px 0px 10px;
     color:#909090;
-    padding: 10px 4px;
+    padding: 1vw 0.4vw;
     margin: 0;
 }
 #add-bases:hover, #base:hover, #inputNumber:hover{
-    scale: 1.02;
+    transform: scale(1.02);
     background-color: #E3E3E3;
 }
 #inputNumber{
     font-size: 6vw;
     width: 35vw;
-    max-width: 500px;
+    max-width: 900px;
     background-color:#F0F0F0;
     border-radius: 10px;
     color:#141414;
     z-index: 1;
 }
 #base{
-    padding: 18px 5px 20px 3px;
-    font-size: 20pt;
+    padding: 1.8vw 0.5vw;
+    font-size: 1.6vw;
     appearance: none;
     border-radius: 0px 10px 10px 0px;
 }
@@ -252,6 +252,23 @@ b{
 }
 /*HOW TO CONVERT - END */
 
+/*FOOTER - BEGIN*/
+footer{
+    background-color: #FB3640;
+    height: 30vh;
+}
+footer > h3{
+    font-size: 3vw;
+    text-align: center;
+    margin: 50px 0px 0px 0px;
+    color: #F9F9F9;
+}
+#share-buttons{
+    display: flex;
+    flex-direction: row;
+
+    align-content: center;
+}
 @keyframes scaling-input-field {
     0%{font-size: 8vw;}
     100%{font-size: 6vw;}
