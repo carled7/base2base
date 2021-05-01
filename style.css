@@ -204,10 +204,11 @@ input::selection{
     margin-left: 10px;
     position: relative;
     top: -20px;
-    transition: background-color 150ms;
+    transition: all 150ms ease;
 }
 .copy-button:hover{
     background-color: #E0313A;
+    transform: scale(1.05);
 }
 [alt="copy"]{
     width: 20px;
@@ -257,18 +258,43 @@ footer{
     background-color: #FB3640;
     height: 30vh;
 }
+footer > h3, footer > p{
+    text-align: center;
+    color: #F9F9F9;
+    opacity: 0.8;
+}
 footer > h3{
     font-size: 3vw;
-    text-align: center;
-    margin: 50px 0px 0px 0px;
+    padding: 30px 0px 10px 0px;
+    font-weight: 400;
+}
+span{
+    font-weight: 700;
     color: #F9F9F9;
+}
+footer > p{
+    font-size: 1.4vw;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 #share-buttons{
     display: flex;
     flex-direction: row;
-
     align-content: center;
+    justify-content: center;
+    opacity: 0.8;
 }
+.social-btn{
+    padding: 10px 15px;
+    border-radius: 32px;
+    margin: 20px 10px;
+    width: 28px;
+    transition: all 150ms ease;
+}
+.social-btn:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+/*FOOTER - END */
 @keyframes scaling-input-field {
     0%{font-size: 8vw;}
     100%{font-size: 6vw;}
