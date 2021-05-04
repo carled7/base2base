@@ -16,7 +16,7 @@
      
 </head>
 
-<body>
+<body onresize="receiveNumber()">
     <main>
         <header>
             <div id="limiter"></div>
@@ -25,7 +25,6 @@
             </a>
             <nav>
                 <a class="nav-items">base converter</a>
-                <a class="nav-items">calculator</a>
                 <a class="nav-items">how to convert</a>
             </nav>
         </header>
@@ -64,7 +63,7 @@
         </section>
         <footer>
             <h3 id="footer-thanks"><span>thank you</span> for using this site</h3>
-            <p>feel free to share, if you like</p>
+            <p>feel free to share</p>
             <div id="share-buttons">
                 <a href="#" id="twitter-btn" target="_blank" onclick="shareSite('twitter')">
                     <img class="social-btn" src="./assets/twitter.svg" alt="share on twitter">

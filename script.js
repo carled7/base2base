@@ -7,6 +7,7 @@ let convertedNumber = [];
 let results = document.getElementById("results");
 let x = 0;
 let addedBase = [];
+let outputWidth = 0;
 
 
 function receiveNumber() {
@@ -67,7 +68,7 @@ function printResults() {
 
     results.style.opacity = '0';
     let i = 0;
-    let t = 1;
+    var t = 1;
     for (converted of convertedNumber) {
         //let result = document.createElement('div');
         let baseIndication = document.createElement('div');
@@ -84,24 +85,14 @@ function printResults() {
 
 
 
-        let width = 320;
-        if (converted.length >= 7) {
-            width = (width + (converted.length - 7) * 30);
-
-            console.log(baseIndication);
-
-            baseIndication.style.transition = "width 400ms ease";
-            baseIndication.style.width = width + "pt";
-
-        }
 
         converted = converted.reverse().join('');
         switch (outputBases[i]) {
             case '(2)':
 
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>binary</strong> base</p>
-                                            <div class="divider"></div>
-                                            <input class="converted-number" id="bin" value="${converted}">
+                                            <span class="divider" id="div-bin"></span>
+                                            <input class="converted-number" id="bin" value="${converted}"> 
                                             <button class="copy-button" onclick="copyToClipboard('bin')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
                 //result.innerText = converted;
@@ -110,7 +101,7 @@ function printResults() {
                 break;
             case '(8)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>octal</strong> base</p>
-                                            <div class="divider"></div>
+                                            <span class="divider" id="div-oct"></span>
                                             <input class="converted-number" id="oct" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard('oct')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
@@ -118,7 +109,7 @@ function printResults() {
                 break;
             case '(10)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>decimal</strong> base</p>
-                                            <div class="divider"></div>
+                                            <span class="divider" id="div-dec"></span>
                                             <input class="converted-number" id="dec" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard('dec')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
@@ -126,7 +117,7 @@ function printResults() {
                 break;
             case '(16)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>hexadecimal</strong> base</p>
-                                            <div class="divider"></div> 
+                                            <span class="divider" id="div-hex"></span>
                                             <input class="converted-number" id="hex" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard('hex')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
@@ -134,19 +125,57 @@ function printResults() {
                 break;
             default:
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>(${outputBases[i]})</strong> base</p>
-                                            <div class="divider"></div> 
+                                            <span class="divider" id="div-new${t}"></span> 
                                             <input class="converted-number" id="new${t}" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard(${t},'addedBase')">
                                             <img src="./assets/copy.svg" alt="copy">
                                             </button>`;
                 results.appendChild(baseIndication);
-                ++t;
                 break;
 
         }
-        ++i;
+
 
         results.style.opacity = '1';
+        if (converted.length >= 7) {
+
+
+
+            outputWidth = (320 + (converted.length - 7) * 30);
+
+            baseIndication.style.width = outputWidth + "pt";
+
+
+        }
+        let wideQuotient = ((converted.length / window.innerWidth).toFixed(5)) * 100;
+        //console.log(wideQuotient);
+        if (wideQuotient > 1.45) {
+
+            var overflowIndicator;
+
+            switch (outputBases[i]) {
+                case '(2)':
+                    overflowIndicator = document.getElementById('div-bin');
+                    break;
+                case '(8)':
+                    overflowIndicator = document.getElementById('div-oct');
+                    break;
+                case '(10)':
+                    overflowIndicator = document.getElementById('div-dec');
+                    break;
+                case '(16)':
+                    overflowIndicator = document.getElementById('div-hex');
+                    break;
+                default:
+                    overflowIndicator = document.getElementById(`div-new${t}`);
+                    ++t;
+                    break;
+            }
+        
+            overflowIndicator.style.display = 'flex';            
+        }
+
+        ++i;
 
     }
 
@@ -339,7 +368,7 @@ function showAlert(alert) {
     }, 1000);
 }
 function shareSite(socialMedia) {
-    
+
     let socialMediaUrl;
     let urlSite = document.location.href;
     let postTitle = encodeURI('Hey, check this out, a real time base converter: base2base.co');
@@ -361,10 +390,10 @@ function shareSite(socialMedia) {
         case 'copy':
             let elementUrl = document.createElement('input');
             shareButton.appendChild(elementUrl);
-            elementUrl.value = urlSite;  
-            
+            elementUrl.value = urlSite;
+
             elementUrl.select();
-            document.execCommand('copy'); 
+            document.execCommand('copy');
             elementUrl.remove();
 
             showAlert('URL copied to clipboard');

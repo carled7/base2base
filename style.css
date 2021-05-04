@@ -2,7 +2,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Roboto Slab', serif;;
+    font-family: 'Roboto Slab', serif;
+    
 }
 body{
     background-color: #F9F9F9;
@@ -167,7 +168,6 @@ input:focus, select:focus{
     height: 190px;     
     transition: all 100ms ease;
     transition-property: width;
-
 }
 
 .base-indicator{
@@ -178,13 +178,26 @@ input:focus, select:focus{
 strong{
     color: #FB3640;
 }
+.divider{
+    display: none;
+    position: absolute;
+    background-image: linear-gradient(to right, rgba(235, 235, 235, 0) 0%, #EBEBEB 92%);
+    height: 60pt;
+    width: 100pt;
+    right: 15%;
+    transform: translate(-4vw, 30px);
+    transition: display 150ms ease;
+
+}
 input.converted-number{
     width: calc(100% - 25px);
     background-color: #EBEBEB;
+    color: #141414;
     border-radius: 4px;
     outline: none;
     border: none;
     padding: 15px 10px;    
+    overflow: visible;
 }
 input::selection{
     background-color: transparent;
@@ -256,7 +269,7 @@ b{
 /*FOOTER - BEGIN*/
 footer{
     background-color: #FB3640;
-    height: 30vh;
+    height: auto;
 }
 footer > h3, footer > p{
     text-align: center;
@@ -273,19 +286,18 @@ span{
     color: #F9F9F9;
 }
 footer > p{
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
 #share-buttons{
     display: flex;
     flex-direction: row;
-    align-content: center;
     justify-content: center;
     opacity: 0.8;
 }
 .social-btn{
-    padding: 10px 15px;
+    padding: 1vh 1.5vh;
     border-radius: 32px;
     margin: 20px 10px;
     width: 28px;
