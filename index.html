@@ -29,7 +29,7 @@
             </nav>
         </header>
         <section id="input-area">
-                    <div id="add-bases" onclick="showInput()">add base</div>
+            <div id="symmetry-fixer"></div>
 
             <input type="text" name="inputNumber" id="inputNumber" placeholder="number"
                 oninput="receiveNumber()">
@@ -39,7 +39,9 @@
                 <option value="10">(10)</option>
                 <option value="8">(8)</option>
                 <option value="16">(16)</option>
-            </select>
+            </select>        
+            <div id="add-base" onclick="showInput()">add new base</div>
+
         </section>
 
         <div id="insert-new-base"></div>

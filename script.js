@@ -66,7 +66,6 @@ function printResults() {
 
     results.innerHTML = '';
 
-    results.style.opacity = '0';
     let i = 0;
     var t = 1;
     for (converted of convertedNumber) {
@@ -75,13 +74,13 @@ function printResults() {
         baseIndication.setAttribute('id', 'content-areas');
 
         let inputArea = document.getElementById('input-area');
-        inputArea.classList.add('showed-results')
-        inputArea.style.height = '30vh';
+        inputArea.classList.add('showed-results');
+        inputArea.style.height = '40vh';
 
         let inputField = document.getElementById('inputNumber');
         inputField.style.animation = 'scaling-input-field 350ms ease 0s forwards';
+        inputArea.style.alignContent = 'flex-end';
 
-        inputField.style.animation = 'scaling-input-font-size 150ms ease 0s forwards';
 
 
 
@@ -130,13 +129,13 @@ function printResults() {
                                             <button class="copy-button" onclick="copyToClipboard(${t},'addedBase')">
                                             <img src="./assets/copy.svg" alt="copy">
                                             </button>`;
+                                            ++t;
                 results.appendChild(baseIndication);
                 break;
 
         }
 
 
-        results.style.opacity = '1';
         if (converted.length >= 7) {
 
 
@@ -149,7 +148,7 @@ function printResults() {
         }
         let wideQuotient = ((converted.length / window.innerWidth).toFixed(5)) * 100;
         //console.log(wideQuotient);
-        if (wideQuotient > 1.45) {
+        if (wideQuotient > 1.4) {
 
             var overflowIndicator;
 
@@ -167,19 +166,15 @@ function printResults() {
                     overflowIndicator = document.getElementById('div-hex');
                     break;
                 default:
-                    overflowIndicator = document.getElementById(`div-new${t}`);
-                    ++t;
+                    overflowIndicator = document.getElementById(`div-new${--t}`);
+                    
                     break;
             }
-        
-            overflowIndicator.style.display = 'flex';            
+
+            overflowIndicator.style.display = 'flex';
         }
-
         ++i;
-
     }
-
-
 }
 
 function toDecimal(digits, base) {
@@ -276,6 +271,10 @@ function showInput() {
     let newBaseDiv = document.getElementById('insert-new-base');
 
     if (x == 0) {
+
+        let newBaseButton = document.getElementById("add-base");
+        newBaseButton.style.opacity = '0';
+
         let inputNewBase = document.createElement("input");
         inputNewBase.id = "new-base-input";
         inputNewBase.setAttribute('type', 'number');
@@ -292,10 +291,17 @@ function showInput() {
 
         let inputArea = document.getElementById('input-area');
         inputArea.classList.add('showed-results');
-        inputArea.style.height = '30vh';
+        inputArea.style.height = '40vh';
 
         let inputField = document.getElementById('inputNumber');
-        inputField.style.animation = 'scaling-input-field 900ms ease 0s forwards';
+        inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
+        inputArea.style.alignContent = 'flex-end';
+
+        let howToConvert = document.getElementById('how-to-convert');
+        let results = document.getElementById('results');
+        howToConvert.style.top = '-40px';
+        results.style.top = '-40px';
+
         x = 1;
     }
 
@@ -329,13 +335,13 @@ function addNewBase() {
         newOptionTag.innerHTML = `(${newBase.value})`;
         selectTag.appendChild(newOptionTag);
 
-        selectTag.style.backgroundColor = '#FB3640';
-        selectTag.style.color = '#FFF';
+        selectTag.style.color = '#FB3640';
+        selectTag.style.transform = 'scale(1.1)';
 
 
         setTimeout(() => {
             selectTag.removeAttribute('style');
-        }, 350);
+        }, 500);
 
         receiveNumber();
     }

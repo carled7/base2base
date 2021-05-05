@@ -20,6 +20,9 @@ header{
     width: 100%;
     height: 5rem;
     color:#141414;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0px 0px 10px 0px rgba(144, 144, 144, 0.2);
 }
 img{
     height: 2.5rem;
@@ -41,25 +44,25 @@ nav{
 #input-area{
     display: flex;
     transition: height 300ms;
-    height: 90vh;
+    height: 95vh;
     justify-content: center;
+    flex-flow: wrap;
+    align-content: center;
     align-items: center;
-    background-color: transparent;
-    
+    margin-bottom: 40px;
 }
-#inputNumber, #base, #add-bases{    
+#inputNumber, #base, #symmetry-fixer{    
     text-align: center;
     border: none;
     color: #909090;
-    transition: all 150ms ease;
+    transition: all 250ms ease;
 }
-#base, #add-bases{
+#base, #symmetry-fixer{
     text-align: center;
     background-color: #EBEBEB;
     width: 5vw;
-
 }
-#add-bases{
+#symmetry-fixer{
     font-size: 1.6vw;
     line-height: 1.8vw;
     border-radius: 4px;
@@ -67,13 +70,10 @@ nav{
     color:#909090;
     padding: 1vw 0.4vw;
     margin: 0;
-}
-#add-bases:hover, #base:hover, #inputNumber:hover{
-    transform: scale(1.02);
-    background-color: #E3E3E3;
+    opacity: 0;
 }
 #inputNumber{
-    font-size: 6vw;
+    font-size: 7vw;
     width: 35vw;
     max-width: 900px;
     background-color:#F0F0F0;
@@ -93,6 +93,20 @@ input:focus, select:focus{
 #inputNumber:focus{
     background-color: #E3E3E3;
 }
+#add-base{
+    text-align: center;
+    background-color: #F0F0F0;
+    padding: 8px 15px;
+    margin: 20px 500px 0px 500px;
+    font-size: 14pt;
+    color: #909090;
+    border-radius: 4px;
+    transition: all 150ms ease;
+}
+#base:hover, #inputNumber:hover, #add-base:hover{
+    transform: scale(1.02);
+    background-color: #E3E3E3;
+}
 /* MAIN INPUT - END */
 
 
@@ -101,9 +115,11 @@ input:focus, select:focus{
     width: 70%;
     display: flex;
     justify-content: center;  
-    margin: auto;      
-    margin-bottom: 4vh;
+    margin: 0px auto;      
+    margin-bottom: 0;
     transition: all 300ms ease;
+    position: relative;
+    top: -80px;
 }
 #new-base-input, #new-base-button{
     padding: 8px 15px;
@@ -124,10 +140,11 @@ input:focus, select:focus{
     border-radius: 0px 4px 4px 0px;
     background-color: #FB3640;
     color: white;
-    transition: background-color 150ms;
+    transition: all 150ms;
 }
 #new-base-button:hover{
-    background-color: #E0313A;;
+    background-color: #E0313A;
+    padding: 8px 20px;
 }
 #copied-alert{
     text-align: center;
@@ -158,7 +175,8 @@ input:focus, select:focus{
     margin: auto ;    
     justify-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 1;
+    position: relative;
 }
 #content-areas{    
     border-radius: 1vw;
@@ -184,8 +202,8 @@ strong{
     background-image: linear-gradient(to right, rgba(235, 235, 235, 0) 0%, #EBEBEB 92%);
     height: 60pt;
     width: 100pt;
-    right: 15%;
-    transform: translate(-4vw, 30px);
+    right: 6%;
+    transform: translate(0, 30px);
     transition: display 150ms ease;
 
 }
@@ -199,8 +217,8 @@ input.converted-number{
     padding: 15px 10px;    
     overflow: visible;
 }
-input::selection{
-    background-color: transparent;
+*::selection{
+    background-color: #EBEBEB;
     color: #FB3640;
 }
 .converted-number{
@@ -237,6 +255,7 @@ input::selection{
     max-width: 900px;
     margin: auto;
     color: #333333;
+    position: relative;
 }
 .htc-title{
     margin: 20px 0 5px 0 ;
@@ -308,16 +327,12 @@ footer > p{
 }
 /*FOOTER - END */
 @keyframes scaling-input-field {
-    0%{font-size: 8vw;}
+    0%{font-size: 7vw;}
     100%{font-size: 6vw;}
 }
 @keyframes scaling-output-numbers {
     0%{font-size: 60pt;}
     100%{font-size: 50pt;}    
-}
-@keyframes show-results-area {
-    0%{display: none;}
-    100%{display: grid;}
 }
 @keyframes new-base-verifier {
     0%{background-color: #EBEBEB;}
