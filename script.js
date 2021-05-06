@@ -19,8 +19,10 @@ function receiveNumber() {
     /*if (digits.length >= 7 && digits.length <= 10) {
         inputNumberElement.style.width = (325 + (digits.length - 7) * 4) + "vw";
     }*/
-    if (digits.length >= 9 && digits.length < 11) {
-        inputNumberElement.style.fontSize = 6 - (digits.length - 9) + 'vw';
+    if (innerWidth > 1480) {
+        if (digits.length >= 9 && digits.length < 11) {
+            inputNumberElement.style.fontSize = 6 - (digits.length - 9) + 'vw';
+        }
     }
     inputBase = document.getElementById("base");
     if (inputBase.value != "" && inputNumber != "") {
@@ -77,8 +79,8 @@ function printResults() {
         inputArea.classList.add('showed-results');
         inputArea.style.height = '40vh';
 
-        let inputField = document.getElementById('inputNumber');
-        inputField.style.animation = 'scaling-input-field 350ms ease 0s forwards';
+        //inputArea.style.transform = 'scale(0.9)';
+        //inputField.style.animation = 'scaling-input-field 350ms ease 0s forwards';
         inputArea.style.alignContent = 'flex-end';
 
 
@@ -129,7 +131,7 @@ function printResults() {
                                             <button class="copy-button" onclick="copyToClipboard(${t},'addedBase')">
                                             <img src="./assets/copy.svg" alt="copy">
                                             </button>`;
-                                            ++t;
+                ++t;
                 results.appendChild(baseIndication);
                 break;
 
@@ -167,7 +169,7 @@ function printResults() {
                     break;
                 default:
                     overflowIndicator = document.getElementById(`div-new${--t}`);
-                    
+
                     break;
             }
 
@@ -294,7 +296,7 @@ function showInput() {
         inputArea.style.height = '40vh';
 
         let inputField = document.getElementById('inputNumber');
-        inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
+        //inputField.style.animation = 'scaling-input-field 150ms ease 0s forwards';
         inputArea.style.alignContent = 'flex-end';
 
         let howToConvert = document.getElementById('how-to-convert');
@@ -404,5 +406,17 @@ function shareSite(socialMedia) {
 
             showAlert('URL copied to clipboard');
             break;
+    }
+}
+function scrollPage(move) {
+
+    let inputSectionPosition = document.getElementById('input-area');
+    let resultsSectionPosition = document.getElementById('results');
+    let scrollRange = (inputSectionPosition.scrollHeight + resultsSectionPosition.scrollHeight) * 0.95;
+
+    if (move == 'scrollDown') {
+        window.scrollTo(0, scrollRange);
+    } else if (move == 'scrollUp') {
+        window.scrollTo(0, 0);
     }
 }
