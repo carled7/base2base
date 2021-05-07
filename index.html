@@ -20,7 +20,7 @@
     <main>
         <header>
             <div id="limiter"></div>
-            <a href="index.html">
+            <a href="index.html" id="logo">
                 <img src="./assets/logo.png" alt="base2base">
             </a>
             <nav>
@@ -31,8 +31,7 @@
         <section id="input-area">
             <div id="symmetry-fixer"></div>
 
-            <input type="text" name="inputNumber" id="inputNumber" placeholder="number"
-                oninput="receiveNumber()">
+            <input type="text" name="inputNumber" id="inputNumber" placeholder="number" oninput="receiveNumber()">
             <select name="base" id="base" oninput="receiveNumber()">
                 <option value="" selected hidden >base</option>
                 <option value="2">(2)</option>
@@ -65,7 +64,6 @@
         </section>
         <footer>
             <h3 id="footer-thanks"><span>thank you</span> for using this site</h3>
-            <p>feel free to share</p>
             <div id="share-buttons">
                 <a href="#" id="twitter-btn" target="_blank" onclick="shareSite('twitter')">
                     <img class="social-btn" src="./assets/twitter.svg" alt="share on twitter">

@@ -16,23 +16,25 @@ body{
 #limiter{
     background-color: #FB3640;
     width: 70%;
-    height: 10px;
+    height: 10%;
     margin: auto;
 }
 header{
     background-color: #FFF;
     width: 100%;
-    height: 5rem;
+    height: 5em;
     color:#141414;
     position: fixed;
     z-index: 2;
     box-shadow: 0px 0px 10px 0px rgba(144, 144, 144, 0.2);
 }
 img{
-    height: 2.5em;
     margin: 15px 0px 0px 17%;
     cursor: pointer;
+    height: 2.5em;
+
 }
+
 nav{
     float: right;
     line-height: 4.3rem;
@@ -45,7 +47,29 @@ nav{
     margin-left: 30px;     
     cursor: pointer;  
 }
-@media screen and (max-width: 860px){
+@media screen and (min-width: 2700px){
+    
+    header{
+        height: 8%;
+    }
+    img{
+        height: 55%;
+    }
+    nav{
+        font-size: 1.2vw;
+        line-height: 8rem;
+    }
+}
+@media screen and (min-width: 3300px){
+    
+    nav{
+        line-height: 10rem;
+    }
+    img{
+        margin: 25px 0px 0px 17%;
+    }
+}
+@media screen and (max-width: 870px){
 
     nav{
         display: none;
@@ -135,6 +159,14 @@ input:focus, select:focus{
     transform: scale(1.02);
     background-color: #E3E3E3;
 }
+@media screen and (min-width: 2700px){
+    #inputNumber{
+        max-width: 1200px;
+    }
+    #add-base{
+        font-size: 28pt;
+    }
+}
 @media screen and (max-width: 1080px){
 
     #base{
@@ -154,7 +186,6 @@ input:focus, select:focus{
     #base{
         margin: 10px 30% 0px 30%;
         padding: 10px 25px;
-
         min-width: 50px;
         font-size: 18pt;
         min-height: 30px;
@@ -164,9 +195,7 @@ input:focus, select:focus{
     }
     #add-base{
         margin: 20px 10% 0px 10%;
-    }
-    
-    
+    }    
 }
 /* MAIN INPUT - END */
 
@@ -226,6 +255,14 @@ input:focus, select:focus{
     top: 80vh;
     opacity: 0;
 }
+@media screen and (min-width: 2700px){
+    #new-base-input, #new-base-button{
+        font-size: 28pt;
+    }
+    #new-base-input{
+        width: 350px;
+    }
+}
 /* INPUT NEW BASE - END */
 
 /*RESULTS SECTION - BEGIN*/
@@ -279,7 +316,7 @@ input.converted-number{
     overflow: visible;
 }
 *::selection{
-    background-color: #EBEBEB;
+    background-color: #E3E3E3;
     color: #FB3640;
 }
 .converted-number{
@@ -307,6 +344,14 @@ input.converted-number{
     margin: 0;
     align-content: center;
     margin: auto;
+}
+@media screen and (min-width: 2700px){
+    #content-areas{
+        width: 100%;
+    }
+    .converted-number{
+        font-size: 100pt;
+    }
 }
 @media screen and (max-width: 400px){
 
@@ -405,7 +450,7 @@ footer{
     background-color: #FB3640;
     height: auto;
 }
-footer > h3, footer > p{
+footer > h3{
     text-align: center;
     color: #F9F9F9;
     opacity: 0.8;
@@ -414,15 +459,12 @@ footer > h3{
     font-size: 3vw;
     padding: 30px 0px 10px 0px;
     font-weight: 400;
+    margin: 0px 20px;
 }
 span{
     font-weight: 700;
-    color: #F9F9F9;
-}
-footer > p{
-    font-size: 1.2vw;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    background-color: #EBEBEB;
+    color: #FB3640;
 }
 #share-buttons{
     display: flex;
@@ -430,17 +472,49 @@ footer > p{
     justify-content: center;
     opacity: 0.8;
 }
-.social-btn{
-    padding: 1px 1.5px;
-    border-radius: 32px;
+#share-buttons > a{
+    width: 50px;
+    height: 50px;
     margin: 20px 10px;
-    width: 28px;
-    box-sizing: border-box;
-
+    border-radius: 25px;
     transition: all 150ms ease;
+
 }
-.social-btn:hover{
+.social-btn{
+    width: 60%;
+    display: flex;
+    position: relative;
+    top: 8%;
+    margin: auto auto;
+}
+#share-buttons > a:hover{
     background-color: rgba(255, 255, 255, 0.3);
+}
+@media screen and (max-width: 1080px){
+
+    footer > h3 {
+        font-size: 30pt;
+    }
+    
+}
+@media screen and (max-width: 500px){
+
+    footer > h3 {
+        font-size: 20pt;
+    }
+    
+}
+@media screen and (max-width: 400px){
+
+    footer > h3 {
+        font-size: 20pt;
+        margin: 0px 50px;
+    }
+    #share-buttons{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
 }
 /*FOOTER - END */
 @keyframes scaling-input-field {

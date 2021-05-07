@@ -84,8 +84,8 @@ function printResults() {
         inputArea.style.alignContent = 'flex-end';
 
 
-
-
+        //let num = document.getElementsByClassName('converted-number');
+        //console.log(num[0].style.width); 
 
         converted = converted.reverse().join('');
         switch (outputBases[i]) {
@@ -138,14 +138,13 @@ function printResults() {
         }
 
 
-        if (converted.length >= 7) {
+        if (converted.length >= 7 && innerWidth < 2700) {
 
-
+            console.log(baseIndication.style.width);
 
             outputWidth = (320 + (converted.length - 7) * 30);
 
             baseIndication.style.width = outputWidth + "pt";
-
 
         }
         let wideQuotient = ((converted.length / window.innerWidth).toFixed(5)) * 100;
