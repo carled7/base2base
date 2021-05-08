@@ -13,6 +13,11 @@ body{
     background-color: #F9F9F9;
     position: relative;
 }
+#place-fixer{
+    width: 100%;
+    height: 6.5em;
+    background-color: transparent;
+}
 #limiter{
     background-color: #FB3640;
     width: 70%;
@@ -96,7 +101,7 @@ nav{
 #input-area{
     display: flex;
     transition: height 300ms;
-    height: 100vh;
+    height: 80vh;
     justify-content: center;
     flex-flow: wrap;
     align-content: center;
@@ -300,7 +305,7 @@ strong{
 .divider{
     display: none;
     position: absolute;
-    background-image: linear-gradient(to right, rgba(235, 235, 235, 0) 0%, #EBEBEB 92%);
+    background-image: linear-gradient(to right, rgba(227,227,227,0), rgba(227,227,227,1) 95%);
     height: 60pt;
     width: 100pt;
     right: 6%;

@@ -92,7 +92,7 @@ function printResults() {
             case '(2)':
 
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>binary</strong> base</p>
-                                            <span class="divider" id="div-bin"></span>
+                                            <div class="divider" id="div-bin"></div>
                                             <input class="converted-number" id="bin" value="${converted}"> 
                                             <button class="copy-button" onclick="copyToClipboard('bin')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
@@ -102,7 +102,7 @@ function printResults() {
                 break;
             case '(8)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>octal</strong> base</p>
-                                            <span class="divider" id="div-oct"></span>
+                                            <div class="divider" id="div-oct"></div>
                                             <input class="converted-number" id="oct" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard('oct')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
@@ -110,7 +110,7 @@ function printResults() {
                 break;
             case '(10)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>decimal</strong> base</p>
-                                            <span class="divider" id="div-dec"></span>
+                                            <div class="divider" id="div-dec"></div>
                                             <input class="converted-number" id="dec" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard('dec')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
@@ -118,7 +118,7 @@ function printResults() {
                 break;
             case '(16)':
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>hexadecimal</strong> base</p>
-                                            <span class="divider" id="div-hex"></span>
+                                            <div class="divider" id="div-hex"></div>
                                             <input class="converted-number" id="hex" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard('hex')"><img src="./assets/copy.svg" alt="copy">
                                             </button>`;
@@ -126,7 +126,7 @@ function printResults() {
                 break;
             default:
                 baseIndication.innerHTML = `<p class="base-indicator"><strong>(${outputBases[i]})</strong> base</p>
-                                            <span class="divider" id="div-new${t}"></span> 
+                                            <div class="divider" id="div-new${t}"></div> 
                                             <input class="converted-number" id="new${t}" value="${converted}">
                                             <button class="copy-button" onclick="copyToClipboard(${t},'addedBase')">
                                             <img src="./assets/copy.svg" alt="copy">
@@ -411,7 +411,7 @@ function scrollPage(move) {
 
     let inputSectionPosition = document.getElementById('input-area');
     let resultsSectionPosition = document.getElementById('results');
-    let scrollRange = (inputSectionPosition.scrollHeight + resultsSectionPosition.scrollHeight) * 0.95;
+    let scrollRange = (inputSectionPosition.scrollHeight + resultsSectionPosition.scrollHeight) ;
 
     if (move == 'scrollDown') {
         window.scrollTo(0, scrollRange);
