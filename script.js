@@ -149,7 +149,7 @@ function printResults() {
         }
         let wideQuotient = ((converted.length / window.innerWidth).toFixed(5)) * 100;
         //console.log(wideQuotient);
-        if (wideQuotient > 1.4) {
+        if (wideQuotient > 1.4 && innerWidth < 2700) {
 
             var overflowIndicator;
 

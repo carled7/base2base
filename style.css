@@ -256,6 +256,9 @@ input:focus, select:focus{
     opacity: 0;
 }
 @media screen and (min-width: 2700px){
+    #copied-alert{
+        transform: scale(2);
+    }
     #new-base-input, #new-base-button{
         font-size: 28pt;
     }
@@ -307,7 +310,7 @@ strong{
 }
 input.converted-number{
     width: calc(100% - 25px);
-    background-color: #EBEBEB;
+    background-color: #E3E3E3;
     color: #141414;
     border-radius: 4px;
     outline: none;
@@ -329,7 +332,8 @@ input.converted-number{
     border: none;
     display: flex;
     width: 40px;
-    border-radius: 20px;
+    height: 40px;
+    border-radius: 50%;
     margin-left: 10px;
     position: relative;
     top: -20px;
@@ -340,7 +344,7 @@ input.converted-number{
     transform: scale(1.05);
 }
 [alt="copy"]{
-    width: 20px;
+    width: 50%;
     margin: 0;
     align-content: center;
     margin: auto;
@@ -348,9 +352,20 @@ input.converted-number{
 @media screen and (min-width: 2700px){
     #content-areas{
         width: 100%;
+        margin-bottom: 120px;
     }
     .converted-number{
         font-size: 100pt;
+    }
+    .base-indicator{
+        font-size: 28pt;
+        width: auto;
+    }
+    .copy-button{
+        width: 80px;
+        height: 80px;
+        top: -40px;
+        margin-left: 20px;
     }
 }
 @media screen and (max-width: 400px){
@@ -414,6 +429,22 @@ b{
     height: 324px;
     display: block;
     margin: 25px auto;
+}
+@media screen and (min-width: 2700px){
+    #how-to-convert{
+        max-width: unset;
+    }
+    .htc-title{
+        font-size: 45pt;
+    }
+    .htc-paragraph{
+        font-size: 28pt;
+        line-height: 45pt;
+    }
+    .htc-image{
+        width: 90%;
+        height: unset;
+    }
 }
 @media screen and (max-width: 1080px){
 
@@ -489,6 +520,20 @@ span{
 }
 #share-buttons > a:hover{
     background-color: rgba(255, 255, 255, 0.3);
+}
+@media screen and (min-width: 2700px){
+    footer > h3 {
+        font-size: 90pt;
+    }
+    #share-buttons > a{
+        width: 180px;
+        height: 180px;
+        border-radius: 100px;
+        margin: 50px 25px;
+    }
+    .social-btn{
+        top: 20%;
+    }
 }
 @media screen and (max-width: 1080px){
 
