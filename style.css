@@ -115,7 +115,8 @@ nav{
     transition: all 250ms ease;
 }
 #base, #symmetry-fixer{
-    text-align: center;
+    /*text-align: center;*/
+    text-align-last: center;
     background-color: #EBEBEB;
     width: 5vw;
     min-width: 60px;
@@ -133,8 +134,9 @@ nav{
     border-radius: 10px;
     color:#141414;
     z-index: 1;
-    cursor: pointer;
+    cursor: pointer;   
 }
+
 #base{
     height: 6vw;
     min-height: 70px;
@@ -397,7 +399,9 @@ input.converted-number{
         padding: 3px 10px;
         right: -76%;
     }
-    
+    [alt="copy"]{
+        width: 100%;
+    }
 }
 /*RESULTS SECTION - END */
 
