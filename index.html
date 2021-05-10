@@ -1,23 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>base2base | Real time base converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assets/icon.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet"> 
+     
 </head>
-<body>
-    <h1>Base converter</h1>
+
+<body onresize="receiveNumber()">
     <main>
-        <input type="number" name="inputNumber" id="inputNumber" onchange="receiveNumber()"> 
-        <select name="base" id="base">
-            <option value="2">binary</option>
-            <option value="10" select>decimal</option>
-            <option value="16">hexadecimal</option>
-            <option value="8">octal</option>
-        </select>
-        <!--<button onclick="receiveNumber()">calc</button>-->
+        
+        <header>
+            <div id="limiter"></div>
+            <a href="index.html" id="logo">
+                <img src="./assets/logo.png" alt="base2base">
+            </a>
+            <nav>
+                <a class="nav-items" onclick="scrollPage('scrollUp')">base converter</a>
+                <a class="nav-items" onclick="scrollPage('scrollDown')">how to convert</a>
+            </nav>
+        </header><div id="place-fixer"></div>
+        <section id="input-area">
+            <div id="symmetry-fixer"></div>
+
+            <input type="text" name="inputNumber" id="inputNumber" placeholder="number" oninput="receiveNumber()">
+            <select name="base" id="base" oninput="receiveNumber()">
+                <option value="" selected hidden >base</option>
+                <option value="2">(2)</option>
+                <option value="10">(10)</option>
+                <option value="8">(8)</option>
+                <option value="16">(16)</option>
+            </select>        
+            <div id="add-base" onclick="showInput()">add new base</div>
+
+        </section>
+
+        <div id="insert-new-base"></div>
+        <div id="copied-alert"></div>
+        <section id="results"></section>
+        <section id="how-to-convert">
+            <h2 class="htc-title">how to convert</h2>
+            <div class="line"></div>
+            <p class="htc-paragraph">The numbers are <b>units of counting</b>, the way we represent them consists in write the respective digits in the right order, so we can read what that number is. The process of converting numeric bases consists in set <b>how many digits are available</b> to represent a specific numeral. We usually write numbers in the decimal base, witch means that there are ten digits (0 to 9) available, but what if we have eight or even two? </p>
+            <h2 class="htc-title">from decimal</h2>
+            <div class="line"></div>
+            <p class="htc-paragraph">To convert a number represented in the decimal base to any other base, there's a method that consists in divide the decimal number by the base that you want to convert, <b>the base will be the amount of digits available</b>. So, if you want to convert to binary base, two would be the digits available.</p>
+            <p class="htc-paragraph">We will divide the number by the base that you want to convert to, and we continue the division by dividing the resulted quotient by the base <b>until the quotient is less than the base</b>. Once that happen, the last quotient concatenated with all the remainders, from the last to first, will be the converted number. For example, let's convert eleven to the binary base:</p>
+            <img src="./assets/fromDecTemp1.png" alt="converting from decimal" class="htc-image">
+            <p class="htc-paragraph">We also can use other division template that facilitates this conversion:</p>
+            <img src="./assets/fromDecTemp2.png" alt="converting from decimal with alternative template" class="htc-image">
+            <h2 class="htc-title">to decimal</h2>
+            <div class="line"></div>
+            <p class="htc-paragraph">To convert a number represented in any base to decimal, the method consists in add the products of each multiplication of each digit that compound the number by its base raise to the power of the digit's position. <b>It is easer than it seems</b>, first of all, the position of witch digit will be counted from right to left, starting from zero. So if we want to convert the number 523, the digit 3 is in the position zero, 2 is in the position 1 and 5 is in the position 3. Second, we'll multiply each digit by the base that <b>will be raised to the power of the respective position</b> we just figure out. Third, we'll add all these resulted products, see the example, converting 523 in the octal base to decimal:</p>
+            <img src="./assets/toDec.png" alt="converting to decimal" class="htc-image">
+        </section>
+        <footer>
+            <h3 id="footer-thanks"><span>thank you</span> for using this site</h3>
+            <div id="share-buttons">
+                <a href="#" id="twitter-btn" target="_blank" onclick="shareSite('twitter')">
+                    <img class="social-btn" src="./assets/twitter.svg" alt="share on twitter">
+                </a>
+                <a href="#" id="facebook-btn" target="_blank" onclick="shareSite('facebook')">
+                    <img class="social-btn" src="./assets/facebook.svg" alt="share on facebook">
+                </a>
+                <a href="#" id="whatsapp-btn" target="_blank" onclick="shareSite('whatsapp')">
+                    <img class="social-btn" src="./assets/whatsapp.svg" alt="share on whatsapp">
+                </a>
+                <a id="copy-btn" onclick="shareSite('copy')">
+                    <img class="social-btn" src="./assets/copy.svg" alt="copy link">
+                </a>
+            </div>
+        </footer>
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
