@@ -375,7 +375,7 @@ input.converted-number{
         margin-left: 20px;
     }
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 480px){
 
     #results{
         width: 100%;
@@ -397,7 +397,7 @@ input.converted-number{
     .copy-button{
         box-sizing: border-box;
         padding: 3px 10px;
-        right: -76%;
+        right: -80%;
     }
     [alt="copy"]{
         width: 100%;
