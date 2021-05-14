@@ -378,7 +378,7 @@ function shareSite(socialMedia) {
 
     let socialMediaUrl;
     let urlSite = document.location.href;
-    let postTitle = encodeURI('Hey, check this out, a real time base converter: base2base.co');
+    let postTitle = encodeURI('Hey, check this out, a real time base converter:');
     let shareButton = document.getElementById(`${socialMedia}-btn`);
 
     switch (socialMedia) {
