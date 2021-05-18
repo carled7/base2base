@@ -103,7 +103,7 @@ nav{
 #input-area{
     display: flex;
     transition: height 300ms;
-    height: 80vh;
+    height: 82vh;
     justify-content: center;
     flex-flow: wrap;
     align-content: center;
