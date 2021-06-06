@@ -11,6 +11,5 @@ base2base is a website where you can convert numeric bases and, also, learn how 
 - JavaScript
 - Responsive Design
 
-![responsive mockup](https://user-images.githubusercontent.com/78650244/120928394-d8e47680-c6ba-11eb-9fe9-b65c98484048.png)
-
+![responsive mockup](https://user-images.githubusercontent.com/78650244/120930537-126daf80-c6c4-11eb-8dcc-082364b1e7b5.png)
 try [base2base](https://base2base.co/)!
