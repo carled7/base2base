@@ -12,4 +12,4 @@ base2base is a website where you can convert numeric bases and, also, learn how 
 - Responsive Design
 
 ![responsive mockup](https://user-images.githubusercontent.com/78650244/120930537-126daf80-c6c4-11eb-8dcc-082364b1e7b5.png)
-try [base2base](https://base2base.co/)!
+try [base2base](https://carled7.github.io/base2base/)!
